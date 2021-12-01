@@ -8,10 +8,8 @@ namespace Proyecto_Visual
 {
     static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
+        
+       
         static void Main()
         {
             ConexionBD con = new ConexionBD();
@@ -21,6 +19,10 @@ namespace Proyecto_Visual
             con.abrir();
 
             resultado = con.Seleccionar("Linda");
+            con.insertarSocio();
+            con.ModificarSocio();
+            con.EliminarSocio();
+
 
             con.cerrar();
 
