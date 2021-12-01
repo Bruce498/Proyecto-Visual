@@ -84,7 +84,7 @@ namespace Proyecto_Visual
         public void insertarSocio() 
         {
 
-            Socio insertarsocio = new Socio();
+            AgregarSocio insertarsocio = new AgregarSocio();
 
             insertarsocio.nombre = "Simon";
             insertarsocio.apellido = "Juri";
@@ -235,6 +235,7 @@ namespace Proyecto_Visual
             }
         }
 
+        //***Seleccioanr Mascota***
         public List<string> Seleccionarmascota(string nombre)
         {
             string sqlSelect = "select * from Cliente where Nombre = '" + nombre + "'";
@@ -274,11 +275,11 @@ namespace Proyecto_Visual
             return listaNombres;
         }
 
-        // INSERTAR SOCIO
-        public void insertarSocio()
+        // INSERTAR Mascota
+        public void Agregarmascota()
         {
 
-            Socio insertarsocio = new Socio();
+            AgregarSocio insertarsocio = new AgregarSocio();
 
             insertarsocio.nombre = "Simon";
             insertarsocio.apellido = "Juri";
@@ -331,8 +332,8 @@ namespace Proyecto_Visual
             }
         }
 
-        //MODIFICAR SOCIO
-        public void ModificarSocio()
+        //MODIFICAR Mascota
+        public void Modificarmascota()
         {
 
             ModificarSocio socio = new ModificarSocio();
@@ -381,7 +382,8 @@ namespace Proyecto_Visual
             }
         }
 
-        public void EliminarSocio()
+        //***Eliminar Mascota****
+        public void Eliminarmascota()
         {
 
             EliminarSocio socio = new EliminarSocio();
@@ -431,4 +433,6 @@ namespace Proyecto_Visual
     }
 
     }
+
+
 
