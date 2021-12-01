@@ -9,10 +9,6 @@ namespace Proyecto_Final
     class Eliminarmascota
     {
         public int idanimal;
-        public string nombre;
-        public string raza;
-        public string especie;
-        
-
+        public int idcliente;
     }
 }

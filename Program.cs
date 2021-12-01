@@ -18,7 +18,7 @@ namespace Proyecto_Visual
 
             con.abrir();
 
-            resultado = con.Seleccionar("Linda");
+            //resultado = con.Seleccionar("Linda");
             con.insertarSocio();
             con.ModificarSocio();
             con.EliminarSocio();
