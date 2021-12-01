@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Proyecto_Visual
 {
@@ -26,11 +27,11 @@ namespace Proyecto_Visual
             try
             {
                 conectarbd.Open();
-                //Console.Write("Conexion Abierta");
+                MessageBox.Show ("Conexion Abierta");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al abrir la base de Datos" + ex.Message);
+                MessageBox.Show ("Error al abrir la base de Datos" + ex.Message);
             }
         }
 
@@ -119,7 +120,7 @@ namespace Proyecto_Visual
                 string resultado;
                 if (r > 0)
                 {
-                    resultado = "Datos isertados correctamente";
+                    resultado = "Datos insertados correctamente";
                 }
                 else
                 {
@@ -217,11 +218,11 @@ namespace Proyecto_Visual
                 string resultado;
                 if (r > 0)
                 {
-                    resultado = "Datos isertados correctamente";
+                    resultado = "Datos eliminados correctamente";
                 }
                 else
                 {
-                    resultado = "Error al insertar los datos";
+                    resultado = "Error al eliminar los datos";
                 }
             }
             catch (Exception ex)
@@ -238,8 +239,7 @@ namespace Proyecto_Visual
         //***Seleccioanr Mascota***
         public List<string> Seleccionarmascota(string nombre)
         {
-            string sqlSelect = "select * from Cliente where Nombre = '" + nombre + "'";
-
+            string sqlSelect = "select * from Animal
             List<string> listaNombres = new List<string>();
 
 
@@ -279,18 +279,17 @@ namespace Proyecto_Visual
         public void Agregarmascota()
         {
 
-            AgregarSocio insertarsocio = new AgregarSocio();
+            AgregarSocio insertarmascota = new AgregarSocio();
 
-            insertarsocio.nombre = "Simon";
-            insertarsocio.apellido = "Juri";
-            insertarsocio.cedula = 42144468;
-            insertarsocio.telefono = 95491259;
-            insertarsocio.direccion = "Avenida del Lago 1 bis";
-            insertarsocio.ciudad = "Canelones";
-            insertarsocio.cuentabancaria = 994101989;
+            insertarmascota.nombre = "Simba";
+            insertarmascota.especie = "Canino";
+            insertarmascota.raza = "Labrador";
+            insertarmascota.color = "Negro";
+            insertarmascota.fechanacimiento = 04/10/2018;
+           
 
 
-            string sqlInsert = "Insert into Cliente (Nombre, Apellido) Values ('" + insertarsocio.nombre + "', '" + insertarsocio.apellido + "''" + insertarsocio.cedula + "', '" + insertarsocio.telefono + "''" + insertarsocio.direccion + "', '" + insertarsocio.ciudad + "','" + insertarsocio.cuentabancaria + "')";
+            string sqlInsert = "Insert into Animal (Nombre, Especie, Raza, Color, Fecha nacimiento) Values ('" + insertarmascota.nombre + "', '" + insertarmascota.especie + "''" + insertarmascota.raza + "', '" + insertarmascota.color + "''" + insertarmascota.fechanacimiento + "')";
             //INSERT INTO table_name(column1, column2, column3, ...) VALUES(value1, value2, value3, ...); ***FUNCION DE INSERTAR DATOS***
 
 
@@ -332,17 +331,16 @@ namespace Proyecto_Visual
             }
         }
 
-        //MODIFICAR Mascota
+        //MODIFICAR Mascota         ****************VER CON EL PROFESOR****************
         public void Modificarmascota()
         {
 
-            ModificarSocio socio = new ModificarSocio();
-            socio.nombre = "Simon";
-            socio.segundonombre = "Arlui";
-            socio.apellido = "Juri";
-            socio.cedula = 123456;
+            Modificarmascota mascota = new Modificarmascota();
+            
+            //mascota.nombre = "Simon";
+            
 
-            string sqlInsert = "Update Persona Set Nombre = " + socio.nombre + ", apellido = " + socio.apellido;
+            string sqlUpdate = "Update Animal Set Nombre = " + mascota.nombre;
 
             var conn = new SqlConnection("DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
 
@@ -352,7 +350,7 @@ namespace Proyecto_Visual
             {
                 Connection = conn,
                 CommandType = CommandType.Text,
-                CommandText = sqlInsert,
+                CommandText = sqlUpdate,
             };
 
 
@@ -364,11 +362,11 @@ namespace Proyecto_Visual
                 string resultado;
                 if (r > 0)
                 {
-                    resultado = "Datos isertados correctamente";
+                    resultado = "Datos modificados correctamente";
                 }
                 else
                 {
-                    resultado = "Error al insertar los datos";
+                    resultado = "Error al modificar los datos";
                 }
             }
             catch (Exception ex)
@@ -386,12 +384,13 @@ namespace Proyecto_Visual
         public void Eliminarmascota()
         {
 
-            EliminarSocio socio = new EliminarSocio();
-            socio.nombre = "Simon";
-            socio.apellido = "Juri";
-            socio.cedula = 42144468;
-
-            string sqlDelete = "Delete Persona Set Nombre = " + socio.nombre + ", apellido = " + socio.apellido;
+            Eliminarmascota mascota = new Eliminarmascota();
+           
+            mascota.idcliente;
+            mascota.idanimal;
+           
+            
+            string sqlDelete = "Delete Animal Set Nombre = " + mascota.idanimal + mascota.idcliente;
 
             var conn = new SqlConnection("DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
 
@@ -413,11 +412,11 @@ namespace Proyecto_Visual
                 string resultado;
                 if (r > 0)
                 {
-                    resultado = "Datos isertados correctamente";
+                    resultado = "Datos eliminados correctamente";
                 }
                 else
                 {
-                    resultado = "Error al insertar los datos";
+                    resultado = "Error al eliminar los datos";
                 }
             }
             catch (Exception ex)
