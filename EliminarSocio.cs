@@ -8,8 +8,7 @@ namespace Proyecto_Final
 {
     class EliminarSocio
     {
-        public string nombre;
-        public string apellido;
-        public int cedula;
+        public int cedulaidentidad;
+    
     }
 }

@@ -8,7 +8,7 @@ namespace Proyecto_Final
 {
     class Eliminarmascota
     {
+        public int cedulaidentidad;
         public int idanimal;
-        public int idcliente;
     }
 }
