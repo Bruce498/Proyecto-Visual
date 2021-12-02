@@ -8,5 +8,6 @@ namespace Proyecto_Final
 {
     class Modificarmascota
     {
+        public int idveterinario;
     }
 }

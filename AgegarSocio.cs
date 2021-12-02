@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Final
 {
-    public class ModificarSocio
+    public class AgegarSocio
     {
-        private string nombre;
-        private string apellido;
-        private string segundonombre;
-        private int cedula;
+        public string nombre;
+        public string apellido;
+        public int cuentabancaria;
+        public int cedula;
         public string direccion;
         public string ciudad;
         public int telefono;
-        public int cuentabancaria;
     }
 }
