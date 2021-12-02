@@ -149,7 +149,7 @@ namespace Proyecto_Visual
             
                 socio.direccion ="Direccion nueva" ;
                 socio.ciudad = "Maldonado";
-                socio.telefono = 26006006; 
+                socio.telefono = 26006000; 
                 socio.cuentabancaria = 1719859635;
 
         string sqlUpdate = "Update Persona Set Nombre = " + socio.direccion + ", "+ socio.telefono + "," + socio.cuentabancaria + "," + socio.ciudad;
