@@ -339,7 +339,7 @@ namespace Proyecto_Visual
 
             Modificarmascota mascota = new Modificarmascota();
             
-            mascota.idveterinario = 1;
+            mascota.idveterinario = 3;
             
 
             string sqlUpdate = "Update Animal Set IdVeterinario = "+ mascota.idveterinario;
