@@ -339,55 +339,8 @@ namespace Proyecto_Visual
             }
         }
 
-        //MODIFICAR Mascota         ****************VER CON EL PROFESOR****************
-        
-        public void Modificarmascota()
-        {
-
-            Modificarmascota mascota = new Modificarmascota();
-            
-            mascota.idveterinario = 3;
-            
-
-            string sqlUpdate = "Update Animal Set IdVeterinario = "+ mascota.idveterinario;
-
-            var conn = new SqlConnection("DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
-
-
-            conn.Open();
-            var comm = new SqlCommand
-            {
-                Connection = conn,
-                CommandType = CommandType.Text,
-                CommandText = sqlUpdate,
-            };
-
-
-            // Ejecuto la Query (la consulta)
-            // Si el resultado es OK, se intertó correctamente, sino, hubo un ERROR
-            try
-            {
-                int r = comm.ExecuteNonQuery();
-                string resultado;
-                if (r > 0)
-                {
-                    resultado = "Datos modificados correctamente";
-                }
-                else
-                {
-                    resultado = "Error al modificar los datos";
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-            finally
-            {
-                if (conn.State != ConnectionState.Closed)
-                    conn.Close();
-            }
-        }
+      
+        }*/
 
         //ELIMINAR MASCOTA
 
