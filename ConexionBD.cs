@@ -42,6 +42,7 @@ namespace Proyecto_Visual
 
 
         //***SELECCIONAR DATOS***
+
         public List<string> Seleccionar(string nombre) 
         {
             string sqlSelect = "select * from Cliente where Nombre = '" + nombre + "'";
@@ -149,7 +150,7 @@ namespace Proyecto_Visual
             
                 socio.direccion ="Direccion nueva" ;
                 socio.ciudad = "Maldonado";
-                socio.telefono = 26006006; 
+                socio.telefono = 26006000; 
                 socio.cuentabancaria = 1719859635;
 
         string sqlUpdate = "Update Persona Set Nombre = " + socio.direccion + ", "+ socio.telefono + "," + socio.cuentabancaria + "," + socio.ciudad;
@@ -191,6 +192,8 @@ namespace Proyecto_Visual
                         conn.Close();
                 }
             }
+
+        //ELIMINAR SOCIO
 
         public void EliminarSocio()
         {
@@ -239,7 +242,8 @@ namespace Proyecto_Visual
             }
         }
 
-        //***Seleccioanr Mascota***
+        //SELECCIONAR MASCOTA
+
         public List<string> Seleccionarmascota(string nombre)
         {
             string sqlSelect = "select * from Animal";
@@ -278,7 +282,8 @@ namespace Proyecto_Visual
             return listaNombres;
         }
 
-        // INSERTAR Mascota
+        // INSERTAR MASCOTA
+
         public void Agregarmascota()
         {
 
@@ -293,6 +298,7 @@ namespace Proyecto_Visual
 
 
             string sqlInsert = "Insert into Animal (Nombre, Especie, Raza, Color, Fecha nacimiento) Values ('" + insertarmascota.nombre + "', '" + insertarmascota.especie + "''" + insertarmascota.raza + "', '" + insertarmascota.color + "''" + insertarmascota.fechanacimiento + "')";
+            
             //INSERT INTO table_name(column1, column2, column3, ...) VALUES(value1, value2, value3, ...); ***FUNCION DE INSERTAR DATOS***
 
             var conn = new SqlConnection("Data Source = DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
@@ -334,12 +340,13 @@ namespace Proyecto_Visual
         }
 
         //MODIFICAR Mascota         ****************VER CON EL PROFESOR****************
+        
         public void Modificarmascota()
         {
 
             Modificarmascota mascota = new Modificarmascota();
             
-            mascota.idveterinario = 1;
+            mascota.idveterinario = 3;
             
 
             string sqlUpdate = "Update Animal Set IdVeterinario = "+ mascota.idveterinario;
@@ -382,7 +389,8 @@ namespace Proyecto_Visual
             }
         }
 
-        //***Eliminar Mascota****
+        //ELIMINAR MASCOTA
+
         public void Eliminarmascota()
         {
 
