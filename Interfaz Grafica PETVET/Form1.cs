@@ -34,7 +34,10 @@ namespace Interfaz_Grafica_PETVET
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            Ingreso_de_Usuario ingreso_De_Usuario = new Ingreso_de_Usuario();
+            ingreso_De_Usuario.Show();
 
+            this.Hide();
         }
     }
 }

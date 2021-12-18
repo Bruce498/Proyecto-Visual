@@ -39,14 +39,14 @@ namespace Interfaz_Grafica_PETVET
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtSegundoNombre = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtCedula = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtCuentaBancaria = new System.Windows.Forms.TextBox();
+            this.txtCiudad = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -134,61 +134,61 @@ namespace Interfaz_Grafica_PETVET
             this.label9.TabIndex = 8;
             this.label9.Text = "Ciudad";
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(203, 103);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(357, 27);
-            this.textBox1.TabIndex = 9;
+            this.txtNombre.Location = new System.Drawing.Point(203, 103);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(357, 27);
+            this.txtNombre.TabIndex = 9;
             // 
-            // textBox2
+            // txtSegundoNombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(203, 143);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(357, 27);
-            this.textBox2.TabIndex = 10;
+            this.txtSegundoNombre.Location = new System.Drawing.Point(203, 143);
+            this.txtSegundoNombre.Name = "txtSegundoNombre";
+            this.txtSegundoNombre.Size = new System.Drawing.Size(357, 27);
+            this.txtSegundoNombre.TabIndex = 10;
             // 
-            // textBox3
+            // txtApellido
             // 
-            this.textBox3.Location = new System.Drawing.Point(203, 185);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(357, 27);
-            this.textBox3.TabIndex = 11;
+            this.txtApellido.Location = new System.Drawing.Point(203, 185);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(357, 27);
+            this.txtApellido.TabIndex = 11;
             // 
-            // textBox4
+            // txtCedula
             // 
-            this.textBox4.Location = new System.Drawing.Point(203, 227);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(357, 27);
-            this.textBox4.TabIndex = 12;
+            this.txtCedula.Location = new System.Drawing.Point(203, 227);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(357, 27);
+            this.txtCedula.TabIndex = 12;
             // 
-            // textBox5
+            // txtDireccion
             // 
-            this.textBox5.Location = new System.Drawing.Point(203, 268);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(357, 27);
-            this.textBox5.TabIndex = 13;
+            this.txtDireccion.Location = new System.Drawing.Point(203, 268);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(357, 27);
+            this.txtDireccion.TabIndex = 13;
             // 
-            // textBox6
+            // txtTelefono
             // 
-            this.textBox6.Location = new System.Drawing.Point(203, 313);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(357, 27);
-            this.textBox6.TabIndex = 14;
+            this.txtTelefono.Location = new System.Drawing.Point(203, 313);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(357, 27);
+            this.txtTelefono.TabIndex = 14;
             // 
-            // textBox7
+            // txtCuentaBancaria
             // 
-            this.textBox7.Location = new System.Drawing.Point(203, 359);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(357, 27);
-            this.textBox7.TabIndex = 15;
+            this.txtCuentaBancaria.Location = new System.Drawing.Point(203, 359);
+            this.txtCuentaBancaria.Name = "txtCuentaBancaria";
+            this.txtCuentaBancaria.Size = new System.Drawing.Size(357, 27);
+            this.txtCuentaBancaria.TabIndex = 15;
             // 
-            // textBox8
+            // txtCiudad
             // 
-            this.textBox8.Location = new System.Drawing.Point(203, 403);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(357, 27);
-            this.textBox8.TabIndex = 16;
+            this.txtCiudad.Location = new System.Drawing.Point(203, 403);
+            this.txtCiudad.Name = "txtCiudad";
+            this.txtCiudad.Size = new System.Drawing.Size(357, 27);
+            this.txtCiudad.TabIndex = 16;
             // 
             // button1
             // 
@@ -198,6 +198,7 @@ namespace Interfaz_Grafica_PETVET
             this.button1.TabIndex = 17;
             this.button1.Text = "Ingresar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -215,14 +216,14 @@ namespace Interfaz_Grafica_PETVET
             this.ClientSize = new System.Drawing.Size(913, 579);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCiudad);
+            this.Controls.Add(this.txtCuentaBancaria);
+            this.Controls.Add(this.txtTelefono);
+            this.Controls.Add(this.txtDireccion);
+            this.Controls.Add(this.txtCedula);
+            this.Controls.Add(this.txtApellido);
+            this.Controls.Add(this.txtSegundoNombre);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -252,14 +253,14 @@ namespace Interfaz_Grafica_PETVET
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtSegundoNombre;
+        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.TextBox txtCedula;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtCuentaBancaria;
+        private System.Windows.Forms.TextBox txtCiudad;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
     }

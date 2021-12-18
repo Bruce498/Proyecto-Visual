@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Proyecto_Final;
+using Proyecto_Visual;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +32,44 @@ namespace Interfaz_Grafica_PETVET
         private void Ingreso_de_Socio_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int cedula = 0;
+            bool cedulaOk = int.TryParse(this.txtCedula.Text, out cedula);
+
+            cedulaOk = cedulaOk && this.txtCedula.Text.Length == 8;
+
+            if (!cedulaOk)
+            {
+                MessageBox.Show("Cedula no es correcta");
+                return;
+            }
+
+            AgegarSocio agegarSocio = new AgegarSocio
+            {
+                apellido = this.txtApellido.Text,
+                cedula = cedula,
+                ciudad = this.txtCiudad.Text,
+                cuentabancaria = Convert.ToInt32(this.txtCuentaBancaria.Text),
+                direccion = this.txtDireccion.Text,
+                nombre = this.txtNombre.Text,
+                telefono = Convert.ToInt32(this.txtTelefono.Text),
+                segundoNombre = this.txtSegundoNombre.Text
+            };
+
+            ConexionBD conexionBD = new ConexionBD();
+            bool ok = conexionBD.AgregarSocio(agegarSocio);
+
+            if (ok)
+            {
+                MessageBox.Show("Datos insertados correctamente");
+            }
+            else
+            {
+                MessageBox.Show("Error al insertar los datos");
+            }
         }
     }
 }

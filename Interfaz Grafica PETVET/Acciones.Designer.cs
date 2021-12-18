@@ -32,14 +32,14 @@ namespace Interfaz_Grafica_PETVET
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Acciones));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ingresarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresarSocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresarMascotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.socioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bajaDeSocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bajaDeMascotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.socioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mascotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -68,6 +68,19 @@ namespace Interfaz_Grafica_PETVET
             this.ingresarToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.ingresarToolStripMenuItem.Text = "Ingresar";
             // 
+            // ingresarSocioToolStripMenuItem
+            // 
+            this.ingresarSocioToolStripMenuItem.Name = "ingresarSocioToolStripMenuItem";
+            this.ingresarSocioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ingresarSocioToolStripMenuItem.Text = "Socio";
+            this.ingresarSocioToolStripMenuItem.Click += new System.EventHandler(this.ingresarSocioToolStripMenuItem_Click);
+            // 
+            // ingresarMascotaToolStripMenuItem
+            // 
+            this.ingresarMascotaToolStripMenuItem.Name = "ingresarMascotaToolStripMenuItem";
+            this.ingresarMascotaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ingresarMascotaToolStripMenuItem.Text = "Mascota";
+            // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -75,6 +88,12 @@ namespace Interfaz_Grafica_PETVET
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
             this.modificarToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
             this.modificarToolStripMenuItem.Text = "Modificar";
+            // 
+            // socioToolStripMenuItem
+            // 
+            this.socioToolStripMenuItem.Name = "socioToolStripMenuItem";
+            this.socioToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
+            this.socioToolStripMenuItem.Text = "Socio";
             // 
             // eliminarToolStripMenuItem
             // 
@@ -85,6 +104,19 @@ namespace Interfaz_Grafica_PETVET
             this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
+            // bajaDeSocioToolStripMenuItem
+            // 
+            this.bajaDeSocioToolStripMenuItem.Name = "bajaDeSocioToolStripMenuItem";
+            this.bajaDeSocioToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.bajaDeSocioToolStripMenuItem.Text = " Socio";
+            // 
+            // bajaDeMascotaToolStripMenuItem
+            // 
+            this.bajaDeMascotaToolStripMenuItem.Name = "bajaDeMascotaToolStripMenuItem";
+            this.bajaDeMascotaToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.bajaDeMascotaToolStripMenuItem.Text = "Mascota";
+            this.bajaDeMascotaToolStripMenuItem.Click += new System.EventHandler(this.bajaDeMascotaToolStripMenuItem_Click);
+            // 
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -94,47 +126,16 @@ namespace Interfaz_Grafica_PETVET
             this.consultarToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.consultarToolStripMenuItem.Text = "Consultar";
             // 
-            // ingresarSocioToolStripMenuItem
-            // 
-            this.ingresarSocioToolStripMenuItem.Name = "ingresarSocioToolStripMenuItem";
-            this.ingresarSocioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.ingresarSocioToolStripMenuItem.Text = "Socio";
-            // 
-            // ingresarMascotaToolStripMenuItem
-            // 
-            this.ingresarMascotaToolStripMenuItem.Name = "ingresarMascotaToolStripMenuItem";
-            this.ingresarMascotaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.ingresarMascotaToolStripMenuItem.Text = "Mascota";
-            // 
-            // socioToolStripMenuItem
-            // 
-            this.socioToolStripMenuItem.Name = "socioToolStripMenuItem";
-            this.socioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.socioToolStripMenuItem.Text = "Socio";
-            // 
-            // bajaDeSocioToolStripMenuItem
-            // 
-            this.bajaDeSocioToolStripMenuItem.Name = "bajaDeSocioToolStripMenuItem";
-            this.bajaDeSocioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.bajaDeSocioToolStripMenuItem.Text = " Socio";
-            // 
-            // bajaDeMascotaToolStripMenuItem
-            // 
-            this.bajaDeMascotaToolStripMenuItem.Name = "bajaDeMascotaToolStripMenuItem";
-            this.bajaDeMascotaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.bajaDeMascotaToolStripMenuItem.Text = "Mascota";
-            this.bajaDeMascotaToolStripMenuItem.Click += new System.EventHandler(this.bajaDeMascotaToolStripMenuItem_Click);
-            // 
             // socioToolStripMenuItem1
             // 
             this.socioToolStripMenuItem1.Name = "socioToolStripMenuItem1";
-            this.socioToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.socioToolStripMenuItem1.Size = new System.Drawing.Size(148, 26);
             this.socioToolStripMenuItem1.Text = "Socio";
             // 
             // mascotaToolStripMenuItem
             // 
             this.mascotaToolStripMenuItem.Name = "mascotaToolStripMenuItem";
-            this.mascotaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.mascotaToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
             this.mascotaToolStripMenuItem.Text = "Mascota";
             // 
             // Acciones

@@ -15,5 +15,6 @@ namespace Proyecto_Final
         public string direccion;
         public string ciudad;
         public int telefono;
+        public string segundoNombre;
     }
 }

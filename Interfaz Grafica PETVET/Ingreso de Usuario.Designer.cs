@@ -96,7 +96,6 @@ namespace Interfaz_Grafica_PETVET
             this.txtcontra.PasswordChar = '*';
             this.txtcontra.Size = new System.Drawing.Size(175, 27);
             this.txtcontra.TabIndex = 1;
-            this.txtcontra.Visible = false;
             this.txtcontra.TextChanged += new System.EventHandler(this.txtcontra_TextChanged);
             // 
             // label3

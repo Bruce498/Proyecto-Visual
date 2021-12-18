@@ -21,5 +21,12 @@ namespace Interfaz_Grafica_PETVET
         {
 
         }
+
+        private void ingresarSocioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ingreso_de_Socio ingreso_De_Socio = new Ingreso_de_Socio();
+            ingreso_De_Socio.Show();
+            this.Hide();
+        }
     }
 }

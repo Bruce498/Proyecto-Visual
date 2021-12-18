@@ -12,6 +12,6 @@ namespace Proyecto_Final
         public string especie = "Canino";
         public string raza = "Labrador";
         public string color = "Negro";
-        public date fechanacimiento = 04/10/2018;
+        //public date fechanacimiento = 04/10/2018;
     }
 }

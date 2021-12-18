@@ -27,11 +27,11 @@ namespace Proyecto_Visual
             try
             {
                 conectarbd.Open();
-                MessageBox.Show ("Conexion Abierta");
+                MessageBox.Show("Conexion Abierta");
             }
             catch (Exception ex)
             {
-                MessageBox.Show ("Error al abrir la base de Datos" + ex.Message);
+                MessageBox.Show("Error al abrir la base de Datos" + ex.Message);
             }
         }
 
@@ -43,7 +43,7 @@ namespace Proyecto_Visual
 
         //***SELECCIONAR DATOS***
 
-        public List<string> Seleccionar(string nombre) 
+        public List<string> Seleccionar(string nombre)
         {
             string sqlSelect = "select * from Cliente where Nombre = '" + nombre + "'";
 
@@ -83,25 +83,17 @@ namespace Proyecto_Visual
         }
 
         // INSERTAR SOCIO
-        public void AgregarSocio() 
+        public bool AgregarSocio(AgegarSocio insertarsocio)
         {
 
-            AgegarSocio insertarsocio = new AgegarSocio();
+            string sqlInsert = "INSERT INTO [dbo].[Cliente] ([Nombre] ,[SegundoNombre] ," +
+                                                             "[Apellido],[CedulaIdentidad]," +
+                                                             "[CuentaBancaria],[Direccion]," +
+                                                             "[Telefono],[Ciudad]) " +
+                                "VALUES (@nombre, @segundoNombre, @apellido, " +
+                                        "@ci, @cuentaBancaria, @direccion, @telefono, @ciudad)";
 
-            insertarsocio.nombre = "Simon";
-            insertarsocio.apellido = "Juri";
-            insertarsocio.cedula = 42144468;
-            insertarsocio.telefono = 95491259;
-            insertarsocio.direccion = "Avenida del Lago 1 bis";
-            insertarsocio.ciudad = "Canelones";
-            insertarsocio.cuentabancaria = 994101989;
-            
-            
-            string sqlInsert = "Insert into Cliente (Nombre, Apellido) Values ('"+ insertarsocio.nombre + "', '" + insertarsocio.apellido + "''" + insertarsocio.cedula + "', '" + insertarsocio.telefono + "''" + insertarsocio.direccion + "', '" + insertarsocio.ciudad + "','"+ insertarsocio.cuentabancaria + "')";
-           
-            //INSERT INTO table_name(column1, column2, column3, ...) VALUES(value1, value2, value3, ...); ***FUNCION DE INSERTAR DATOS***
 
-   
             var conn = new SqlConnection("Data Source = DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
 
 
@@ -113,20 +105,83 @@ namespace Proyecto_Visual
                 CommandText = sqlInsert,
             };
 
+            comm.Parameters.AddWithValue("nombre", insertarsocio.nombre);
+            comm.Parameters.AddWithValue("segundoNombre", insertarsocio.segundoNombre);
+            comm.Parameters.AddWithValue("apellido", insertarsocio.apellido);
+            comm.Parameters.AddWithValue("ci", insertarsocio.cedula);
+            comm.Parameters.AddWithValue("cuentaBancaria", insertarsocio.cuentabancaria);
+            comm.Parameters.AddWithValue("direccion", insertarsocio.direccion);
+            comm.Parameters.AddWithValue("telefono", insertarsocio.telefono);
+            comm.Parameters.AddWithValue("ciudad", insertarsocio.ciudad);
+
 
             // Ejecuto la Query (la consulta)
             // Si el resultado es OK, se insertó correctamente, sino, hubo un ERROR
             try
             {
                 int r = comm.ExecuteNonQuery();
+                //string resultado;
+                //if (r > 0)
+                //{
+                //    resultado = "Datos insertados correctamente";
+                //}
+                //else
+                //{
+                //    resultado = "Error al insertar los datos";
+                //}
+                return r > 0;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+        }
+
+        //MODIFICAR SOCIO
+        public void ModificarSocio()
+        {
+
+            ModificarSocio socio = new ModificarSocio();
+
+            ///SE DEBE HACER LA CONSULTA PARA SABER DE QUE SOCIO ESTAMOS MODIFICANDO
+
+            socio.direccion = "Direccion nueva";
+            socio.ciudad = "Maldonado";
+            socio.telefono = 26006000;
+            socio.cuentabancaria = 1719859635;
+
+            string sqlUpdate = "Update Persona Set Nombre = " + socio.direccion + ", " + socio.telefono + "," + socio.cuentabancaria + "," + socio.ciudad;
+
+            var conn = new SqlConnection("DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
+
+
+            conn.Open();
+            var comm = new SqlCommand
+            {
+                Connection = conn,
+                CommandType = CommandType.Text,
+                CommandText = sqlUpdate,
+            };
+
+
+            // Ejecuto la Query (la consulta)
+            // Si el resultado es OK, se intertó correctamente, sino, hubo un ERROR
+            try
+            {
+                int r = comm.ExecuteNonQuery();
                 string resultado;
                 if (r > 0)
                 {
-                    resultado = "Datos insertados correctamente";
+                    resultado = "Datos actualziados correctamente";
                 }
                 else
                 {
-                    resultado = "Error al insertar los datos";
+                    resultado = "Error al actualziar los datos";
                 }
             }
             catch (Exception ex)
@@ -140,68 +195,15 @@ namespace Proyecto_Visual
             }
         }
 
-        //MODIFICAR SOCIO
-        public void ModificarSocio() 
-            {
-
-                ModificarSocio socio = new ModificarSocio();
-
-               ///SE DEBE HACER LA CONSULTA PARA SABER DE QUE SOCIO ESTAMOS MODIFICANDO
-            
-                socio.direccion ="Direccion nueva" ;
-                socio.ciudad = "Maldonado";
-                socio.telefono = 26006000; 
-                socio.cuentabancaria = 1719859635;
-
-        string sqlUpdate = "Update Persona Set Nombre = " + socio.direccion + ", "+ socio.telefono + "," + socio.cuentabancaria + "," + socio.ciudad;
-
-                var conn = new SqlConnection("DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
-
-
-                conn.Open();
-                var comm = new SqlCommand
-                {
-                    Connection = conn,
-                    CommandType = CommandType.Text,
-                    CommandText = sqlUpdate,
-                };
-
-
-                // Ejecuto la Query (la consulta)
-                // Si el resultado es OK, se intertó correctamente, sino, hubo un ERROR
-                try
-                {
-                    int r = comm.ExecuteNonQuery();
-                    string resultado;
-                    if (r > 0)
-                    {
-                        resultado = "Datos actualziados correctamente";
-                    }
-                    else
-                    {
-                        resultado = "Error al actualziar los datos";
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                }
-                finally
-                {
-                    if (conn.State != ConnectionState.Closed)
-                        conn.Close();
-                }
-            }
-
         //ELIMINAR SOCIO
 
         public void EliminarSocio()
         {
 
             EliminarSocio socio = new EliminarSocio();
-            
-            socio.cedulaidentidad= 42144468;
-            
+
+            socio.cedulaidentidad = 42144468;
+
             string sqlDelete = "Delete Cliente Set Nombre =" + socio.cedulaidentidad;
 
             var conn = new SqlConnection("DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
@@ -293,12 +295,12 @@ namespace Proyecto_Visual
             insertarmascota.especie = "Canino";
             insertarmascota.raza = "Labrador";
             insertarmascota.color = "Negro";
-            insertarmascota.fechanacimiento = 04/10/2018;
-           
+            //insertarmascota.fechanacimiento = 04/10/2018;
 
 
-            string sqlInsert = "Insert into Animal (Nombre, Especie, Raza, Color, Fecha nacimiento) Values ('" + insertarmascota.nombre + "', '" + insertarmascota.especie + "''" + insertarmascota.raza + "', '" + insertarmascota.color + "''" + insertarmascota.fechanacimiento + "')";
-            
+
+            //string sqlInsert = "Insert into Animal (Nombre, Especie, Raza, Color, Fecha nacimiento) Values ('" + insertarmascota.nombre + "', '" + insertarmascota.especie + "''" + insertarmascota.raza + "', '" + insertarmascota.color + "''" + insertarmascota.fechanacimiento + "')";
+
             //INSERT INTO table_name(column1, column2, column3, ...) VALUES(value1, value2, value3, ...); ***FUNCION DE INSERTAR DATOS***
 
             var conn = new SqlConnection("Data Source = DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
@@ -309,7 +311,7 @@ namespace Proyecto_Visual
             {
                 Connection = conn,
                 CommandType = CommandType.Text,
-                CommandText = sqlInsert,
+                CommandText = string.Empty,
             };
 
 
@@ -338,23 +340,17 @@ namespace Proyecto_Visual
                     conn.Close();
             }
         }
-
-      
-        }*/
-
-        //ELIMINAR MASCOTA
-
         public void Eliminarmascota()
         {
 
             Eliminarmascota mascota = new Eliminarmascota();
-           
+
             //Hacer la consulta para saber que animal corresponde al socio
 
-              mascota.cedulaidentidad = 42144468;
-              mascota.idanimal = 1;
-           
-            
+            mascota.cedulaidentidad = 42144468;
+            mascota.idanimal = 1;
+
+
             string sqlDelete = "Delete Animal Set Animal = " + mascota.idanimal + mascota.cedulaidentidad;
 
             var conn = new SqlConnection("DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
@@ -394,9 +390,14 @@ namespace Proyecto_Visual
                     conn.Close();
             }
         }
-    }
 
     }
+
+    //ELIMINAR MASCOTA
+
+
+}
+
 
 
 

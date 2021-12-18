@@ -35,9 +35,12 @@ namespace Interfaz_Grafica_PETVET
         private void btnIniciar_Click(object sender, EventArgs e)
 
         {
-            if (txtID.Text == "Simon" && txtcontra == "04101989")
+            if (txtID.Text == "Simon" && txtcontra.Text == "04101989")
             {
                 MessageBox.Show("Se ha iniciado la sesion.");
+                Acciones acciones = new Acciones();
+                acciones.Show();
+                this.Hide();
             }
             else
             {
