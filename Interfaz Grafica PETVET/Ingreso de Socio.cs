@@ -65,11 +65,32 @@ namespace Interfaz_Grafica_PETVET
             if (ok)
             {
                 MessageBox.Show("Datos insertados correctamente");
+                //volver a atras
+                Acciones acciones = new Acciones();
+                acciones.Show();
+                this.Dispose();
             }
             else
             {
                 MessageBox.Show("Error al insertar los datos");
             }
+        }
+
+        private void Ingreso_de_Socio_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Acciones acciones = new Acciones();
+            acciones.Show();
+            this.Dispose();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

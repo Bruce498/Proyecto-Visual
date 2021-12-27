@@ -35,13 +35,35 @@ namespace Interfaz_Grafica_PETVET
         private void btnIniciar_Click(object sender, EventArgs e)
 
         {
-            if (txtID.Text == "Simon" && txtcontra.Text == "04101989")
+            if (txtID.Text == "Simon" && txtcontra.Text == "42144468")
             {
                 MessageBox.Show("Se ha iniciado la sesion.");
                 Acciones acciones = new Acciones();
                 acciones.Show();
                 this.Hide();
             }
+            if (txtID.Text == "Bruce" && txtcontra.Text == "52220278")
+            {
+                MessageBox.Show("Se ha iniciado la sesion.");
+                Acciones acciones = new Acciones();
+                acciones.Show();
+                this.Hide();
+            }
+            if (txtID.Text == "Fernando" && txtcontra.Text == "46130946")
+            {
+                MessageBox.Show("Se ha iniciado la sesion.");
+                Acciones acciones = new Acciones();
+                acciones.Show();
+                this.Hide();
+            }
+            if (txtID.Text == "Sergio" && txtcontra.Text == "55529693")
+            {
+                MessageBox.Show("Se ha iniciado la sesion.");
+                Acciones acciones = new Acciones();
+                acciones.Show();
+                this.Hide();
+            }
+
             else
             {
                 MessageBox.Show("Error en el ID o Contraseña..Ingrese nuevamente!");
@@ -60,6 +82,11 @@ namespace Interfaz_Grafica_PETVET
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Interfaz_Grafica_PETVET
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Inicio());
         }
     }
 }

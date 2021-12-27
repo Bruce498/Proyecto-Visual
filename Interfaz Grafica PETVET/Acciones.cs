@@ -26,7 +26,12 @@ namespace Interfaz_Grafica_PETVET
         {
             Ingreso_de_Socio ingreso_De_Socio = new Ingreso_de_Socio();
             ingreso_De_Socio.Show();
-            this.Hide();
+            this.Dispose();
+        }
+
+        private void Acciones_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

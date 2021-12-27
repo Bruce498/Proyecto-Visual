@@ -41,7 +41,7 @@ namespace Proyecto_Visual
         }
 
 
-        //***SELECCIONAR DATOS***
+        //***CONSULTAR DATOS***
 
         public List<string> Seleccionar(string nombre)
         {
@@ -94,7 +94,7 @@ namespace Proyecto_Visual
                                         "@ci, @cuentaBancaria, @direccion, @telefono, @ciudad)";
 
 
-            var conn = new SqlConnection("Data Source = DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
+            var conn = new SqlConnection(cadena);
 
 
             conn.Open();
@@ -120,15 +120,6 @@ namespace Proyecto_Visual
             try
             {
                 int r = comm.ExecuteNonQuery();
-                //string resultado;
-                //if (r > 0)
-                //{
-                //    resultado = "Datos insertados correctamente";
-                //}
-                //else
-                //{
-                //    resultado = "Error al insertar los datos";
-                //}
                 return r > 0;
             }
             catch (Exception ex)
@@ -143,50 +134,53 @@ namespace Proyecto_Visual
         }
 
         //MODIFICAR SOCIO
-        public void ModificarSocio()
+        public bool ModificarSocio(ModificarSocio modificar)
         {
-
-            ModificarSocio socio = new ModificarSocio();
-
-            ///SE DEBE HACER LA CONSULTA PARA SABER DE QUE SOCIO ESTAMOS MODIFICANDO
-
-            socio.direccion = "Direccion nueva";
-            socio.ciudad = "Maldonado";
-            socio.telefono = 26006000;
-            socio.cuentabancaria = 1719859635;
-
-            string sqlUpdate = "Update Persona Set Nombre = " + socio.direccion + ", " + socio.telefono + "," + socio.cuentabancaria + "," + socio.ciudad;
-
-            var conn = new SqlConnection("DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
-
-
-            conn.Open();
+            var conn = new SqlConnection(cadena);
             var comm = new SqlCommand
             {
                 Connection = conn,
                 CommandType = CommandType.Text,
-                CommandText = sqlUpdate,
             };
 
+            string sql = "update Cliente set ";
+            string where = " WHERE CedulaIdentidad = @cedula";
+
+            comm.Parameters.AddWithValue("cedula", modificar.cedula);
+
+            if (!string.IsNullOrEmpty(modificar.ciudad))
+            {
+                sql += " Ciudad = @ciudad,";
+                comm.Parameters.AddWithValue("ciudad", modificar.ciudad);
+            }
+
+            if (modificar.cuentabancaria != 0)
+            {
+                sql += " CuentaBancaria = @cuentabancaria,";
+                comm.Parameters.AddWithValue("cuentabancaria", modificar.cuentabancaria);
+            }
+
+            if (!string.IsNullOrEmpty(modificar.direccion))
+            {
+                sql += " Direccion = @direccion,";
+                comm.Parameters.AddWithValue("direccion", modificar.direccion);
+            }
+
+            sql = sql.Substring(0, sql.Length - 1) + where;
+
+            comm.CommandText = sql;
+            conn.Open();
 
             // Ejecuto la Query (la consulta)
             // Si el resultado es OK, se intertó correctamente, sino, hubo un ERROR
             try
             {
                 int r = comm.ExecuteNonQuery();
-                string resultado;
-                if (r > 0)
-                {
-                    resultado = "Datos actualziados correctamente";
-                }
-                else
-                {
-                    resultado = "Error al actualziar los datos";
-                }
+                return r > 0;
             }
             catch (Exception ex)
             {
-
+                return false;
             }
             finally
             {
@@ -197,16 +191,13 @@ namespace Proyecto_Visual
 
         //ELIMINAR SOCIO
 
-        public void EliminarSocio()
+        public bool EliminarSocio (EliminarSocio eliminarSocio)
         {
 
-            EliminarSocio socio = new EliminarSocio();
+            string sqlDelete = "DELETE [dbo].[Cliente] ([[CedulaIdentidad],";
 
-            socio.cedulaidentidad = 42144468;
 
-            string sqlDelete = "Delete Cliente Set Nombre =" + socio.cedulaidentidad;
-
-            var conn = new SqlConnection("DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
+            var conn = new SqlConnection(cadena);
 
 
             conn.Open();
@@ -217,6 +208,10 @@ namespace Proyecto_Visual
                 CommandText = sqlDelete,
             };
 
+           
+            comm.Parameters.AddWithValue("ci", eliminarSocio.cedula);
+            
+
 
             // Ejecuto la Query (la consulta)
             // Si el resultado es OK, se intertó correctamente, sino, hubo un ERROR
@@ -226,7 +221,7 @@ namespace Proyecto_Visual
                 string resultado;
                 if (r > 0)
                 {
-                    resultado = "Datos eliminados correctamente";
+                    resultado = "Socio Eliminado Satisfactoriamente";
                 }
                 else
                 {
@@ -244,7 +239,7 @@ namespace Proyecto_Visual
             }
         }
 
-        //SELECCIONAR MASCOTA
+        //CONSULTAR MASCOTA
 
         public List<string> Seleccionarmascota(string nombre)
         {

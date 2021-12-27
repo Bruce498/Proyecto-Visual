@@ -11,7 +11,7 @@ namespace Proyecto_Final
         private string nombre;
         private string apellido;
         private string segundonombre;
-        private int cedula;
+        public int cedula;
         public string direccion;
         public string ciudad;
         public int telefono;

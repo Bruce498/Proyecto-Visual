@@ -71,14 +71,14 @@ namespace Interfaz_Grafica_PETVET
             // ingresarSocioToolStripMenuItem
             // 
             this.ingresarSocioToolStripMenuItem.Name = "ingresarSocioToolStripMenuItem";
-            this.ingresarSocioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ingresarSocioToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
             this.ingresarSocioToolStripMenuItem.Text = "Socio";
             this.ingresarSocioToolStripMenuItem.Click += new System.EventHandler(this.ingresarSocioToolStripMenuItem_Click);
             // 
             // ingresarMascotaToolStripMenuItem
             // 
             this.ingresarMascotaToolStripMenuItem.Name = "ingresarMascotaToolStripMenuItem";
-            this.ingresarMascotaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ingresarMascotaToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
             this.ingresarMascotaToolStripMenuItem.Text = "Mascota";
             // 
             // modificarToolStripMenuItem
@@ -148,6 +148,7 @@ namespace Interfaz_Grafica_PETVET
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Acciones";
             this.Text = "Acciones";
+            this.Load += new System.EventHandler(this.Acciones_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
