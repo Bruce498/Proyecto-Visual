@@ -107,13 +107,14 @@ namespace Interfaz_Grafica_PETVET
             // bajaDeSocioToolStripMenuItem
             // 
             this.bajaDeSocioToolStripMenuItem.Name = "bajaDeSocioToolStripMenuItem";
-            this.bajaDeSocioToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.bajaDeSocioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.bajaDeSocioToolStripMenuItem.Text = " Socio";
+            this.bajaDeSocioToolStripMenuItem.Click += new System.EventHandler(this.bajaDeSocioToolStripMenuItem_Click);
             // 
             // bajaDeMascotaToolStripMenuItem
             // 
             this.bajaDeMascotaToolStripMenuItem.Name = "bajaDeMascotaToolStripMenuItem";
-            this.bajaDeMascotaToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.bajaDeMascotaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.bajaDeMascotaToolStripMenuItem.Text = "Mascota";
             this.bajaDeMascotaToolStripMenuItem.Click += new System.EventHandler(this.bajaDeMascotaToolStripMenuItem_Click);
             // 

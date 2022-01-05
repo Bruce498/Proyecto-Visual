@@ -42,21 +42,21 @@ namespace Interfaz_Grafica_PETVET
                 acciones.Show();
                 this.Hide();
             }
-            if (txtID.Text == "Bruce" && txtcontra.Text == "52220278")
+            else if (txtID.Text == "Bruce" && txtcontra.Text == "52220278")
             {
                 MessageBox.Show("Se ha iniciado la sesion.");
                 Acciones acciones = new Acciones();
                 acciones.Show();
                 this.Hide();
             }
-            if (txtID.Text == "Fernando" && txtcontra.Text == "46130946")
+            else if (txtID.Text == "Fernando" && txtcontra.Text == "46130946")
             {
                 MessageBox.Show("Se ha iniciado la sesion.");
                 Acciones acciones = new Acciones();
                 acciones.Show();
                 this.Hide();
             }
-            if (txtID.Text == "Sergio" && txtcontra.Text == "55529693")
+            else if (txtID.Text == "Sergio" && txtcontra.Text == "55529693")
             {
                 MessageBox.Show("Se ha iniciado la sesion.");
                 Acciones acciones = new Acciones();

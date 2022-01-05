@@ -43,11 +43,13 @@ namespace Proyecto_Visual
 
         //***CONSULTAR DATOS***
 
-        public List<string> Seleccionar(string nombre)
+        public List<Consultar_Datos> Seleccionar()
         {
-            string sqlSelect = "select * from Cliente where Nombre = '" + nombre + "'";
+            string sqlSelect = "SELECT [Nombre]" + ",[SegundoNombre]," + "[Apellido]" + ",[CedulaIdentidad]," + "[CuentaBancaria]," + "[Direccion]," + "[Telefono]," + "[Ciudad]," + 
+                               "[IdCliente] FROM [VeterinariaPetVet].[dbo].[Cliente]";
 
-            List<string> listaNombres = new List<string>();
+
+            List<Consultar_Datos> listadatos = new List<Consultar_Datos>();
 
 
             var comm = new SqlCommand
@@ -62,24 +64,31 @@ namespace Proyecto_Visual
 
                 while (r.Read())
                 {
+                    Consultar_Datos consultar_Datos = new Consultar_Datos();
+                    
+                    consultar_Datos.nombre = r ["Nombre"].ToString();
+                    consultar_Datos.segundonombre = r ["SegundoNombre"].ToString();
+                    consultar_Datos.apellido = r ["Apellido"].ToString();
+                    consultar_Datos.direccion = r ["Direccion"].ToString();
+                    consultar_Datos.ciudad = r ["Ciudad"].ToString();
+                    //consultar_Datos.CuentaBancaria = r ["CuentaBancaria"].
+                    //consultar_Datos.CedulaIdentidad = r["CedulaIdentidad"].;
+                    //consultar_Datos.telefono = r["Telefono"].;
 
-                    string nombreRecibido = r["Nombre"].ToString();
-
-                    string apellido = r["Apellido"].ToString();
 
 
-                    listaNombres.Add(nombreRecibido);
+                    listadatos.Add(consultar_Datos); // devuelve los datos en una lista
 
                     // Acá se obtienen los datos del Reader, lo que devuelve la Base de Datos de esa consulta
                 }
 
-                return listaNombres;
+                return listadatos;
             }
             catch (Exception ex)
             {
-
+                return null;
             }
-            return listaNombres;
+            
         }
 
         // INSERTAR SOCIO
@@ -191,12 +200,11 @@ namespace Proyecto_Visual
 
         //ELIMINAR SOCIO
 
-        public bool EliminarSocio (EliminarSocio eliminarSocio)
+        public void EliminarSocio (EliminarSocio eliminarSocio)
         {
 
-            string sqlDelete = "DELETE [dbo].[Cliente] ([[CedulaIdentidad],";
-
-
+            string sqlDelete = "DELETE from [dbo].[Cliente] where CedulaIdentidad = @ci";
+            
             var conn = new SqlConnection(cadena);
 
 
@@ -218,19 +226,19 @@ namespace Proyecto_Visual
             try
             {
                 int r = comm.ExecuteNonQuery();
-                string resultado;
                 if (r > 0)
                 {
-                    resultado = "Socio Eliminado Satisfactoriamente";
+                    MessageBox.Show("Datos elimnados correctamente");
                 }
                 else
                 {
-                    resultado = "Error al eliminar los datos";
+                    MessageBox.Show("Error al eliminar los datos");
                 }
-            }
+            }   
             catch (Exception ex)
             {
-
+                MessageBox.Show("Error al eliminar los datos" + ex.Message); // error tecnico de la base de datos (roptura de la tablas, error de clave foranea)
+                
             }
             finally
             {
