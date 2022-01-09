@@ -44,7 +44,7 @@ namespace Interfaz_Grafica_PETVET
             this.btnIniciar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnIniciar.Location = new System.Drawing.Point(192, 356);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(94, 29);
+            this.btnIniciar.Size = new System.Drawing.Size(120, 50);
             this.btnIniciar.TabIndex = 2;
             this.btnIniciar.Text = "Iniciar";
             this.btnIniciar.UseVisualStyleBackColor = true;
@@ -55,7 +55,7 @@ namespace Interfaz_Grafica_PETVET
             this.btnSalir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSalir.Location = new System.Drawing.Point(446, 356);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(94, 29);
+            this.btnSalir.Size = new System.Drawing.Size(120, 50);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Atras";
             this.btnSalir.UseVisualStyleBackColor = true;
