@@ -31,30 +31,32 @@ namespace Interfaz_Grafica_PETVET
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Acceder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 31.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(291, -1);
+            this.label1.Font = new System.Drawing.Font("Lato Black", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(218, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(575, 61);
+            this.label1.Size = new System.Drawing.Size(677, 80);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bienvenidos PET VET";
             // 
-            // button1
+            // Acceder
             // 
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(412, 205);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(172, 39);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Acceder";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.Acceder.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Acceder.ForeColor = System.Drawing.Color.White;
+            this.Acceder.Image = ((System.Drawing.Image)(resources.GetObject("Acceder.Image")));
+            this.Acceder.Location = new System.Drawing.Point(466, 285);
+            this.Acceder.Name = "Acceder";
+            this.Acceder.Size = new System.Drawing.Size(224, 61);
+            this.Acceder.TabIndex = 1;
+            this.Acceder.Text = "Acceder";
+            this.Acceder.UseVisualStyleBackColor = true;
+            this.Acceder.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Inicio
             // 
@@ -62,8 +64,8 @@ namespace Interfaz_Grafica_PETVET
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(909, 492);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1050, 677);
+            this.Controls.Add(this.Acceder);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Inicio";
@@ -78,7 +80,7 @@ namespace Interfaz_Grafica_PETVET
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Acceder;
     }
 }
 

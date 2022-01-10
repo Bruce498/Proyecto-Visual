@@ -35,6 +35,7 @@ namespace Proyecto_Final
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -42,9 +43,9 @@ namespace Proyecto_Final
             this.button1.BackColor = System.Drawing.Color.Silver;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(376, 348);
+            this.button1.Location = new System.Drawing.Point(545, 555);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(139, 51);
             this.button1.TabIndex = 0;
@@ -56,7 +57,7 @@ namespace Proyecto_Final
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(568, 348);
+            this.button2.Location = new System.Drawing.Point(737, 555);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(139, 51);
             this.button2.TabIndex = 1;
@@ -67,16 +68,18 @@ namespace Proyecto_Final
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(534, 69);
+            this.label1.Location = new System.Drawing.Point(703, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 2;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(408, 124);
+            this.textBox1.BackColor = System.Drawing.Color.Silver;
+            this.textBox1.Font = new System.Drawing.Font("Lato Black", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(578, 226);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(276, 27);
+            this.textBox1.Size = new System.Drawing.Size(276, 29);
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -86,12 +89,25 @@ namespace Proyecto_Final
             this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(376, 52);
+            this.label2.Location = new System.Drawing.Point(558, 158);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(331, 37);
             this.label2.TabIndex = 4;
             this.label2.Text = "Ingrese Cedula del Socio";
             this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Lato Black", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(486, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(461, 80);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Eliminar Socio";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Eliminar_Socio
             // 
@@ -99,7 +115,8 @@ namespace Proyecto_Final
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1050, 677);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -123,5 +140,6 @@ namespace Proyecto_Final
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
