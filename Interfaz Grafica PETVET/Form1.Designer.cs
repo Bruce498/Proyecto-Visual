@@ -39,7 +39,7 @@ namespace Interfaz_Grafica_PETVET
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Font = new System.Drawing.Font("Lato Black", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(218, 0);
+            this.label1.Location = new System.Drawing.Point(301, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(677, 80);
             this.label1.TabIndex = 0;
@@ -47,9 +47,9 @@ namespace Interfaz_Grafica_PETVET
             // 
             // Acceder
             // 
+            this.Acceder.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Acceder.BackgroundImage")));
             this.Acceder.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Acceder.ForeColor = System.Drawing.Color.White;
-            this.Acceder.Image = ((System.Drawing.Image)(resources.GetObject("Acceder.Image")));
             this.Acceder.Location = new System.Drawing.Point(466, 285);
             this.Acceder.Name = "Acceder";
             this.Acceder.Size = new System.Drawing.Size(224, 61);
@@ -64,7 +64,7 @@ namespace Interfaz_Grafica_PETVET
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1050, 677);
+            this.ClientSize = new System.Drawing.Size(1257, 716);
             this.Controls.Add(this.Acceder);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -26,5 +26,10 @@ namespace Interfaz_Grafica_PETVET
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

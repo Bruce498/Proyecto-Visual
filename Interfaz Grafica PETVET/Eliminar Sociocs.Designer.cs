@@ -38,7 +38,7 @@ namespace Interfaz_Grafica_PETVET
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("DejaVu Sans Condensed", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(463, 32);
+            this.label1.Location = new System.Drawing.Point(604, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(460, 70);
             this.label1.TabIndex = 0;
@@ -51,7 +51,7 @@ namespace Interfaz_Grafica_PETVET
             this.AutoScrollMargin = new System.Drawing.Size(5, 5);
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1046, 673);
+            this.ClientSize = new System.Drawing.Size(1253, 712);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

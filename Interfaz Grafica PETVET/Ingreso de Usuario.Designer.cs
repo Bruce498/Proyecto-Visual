@@ -44,7 +44,7 @@ namespace Interfaz_Grafica_PETVET
             this.btnIniciar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnIniciar.BackgroundImage")));
             this.btnIniciar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnIniciar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnIniciar.Location = new System.Drawing.Point(226, 354);
+            this.btnIniciar.Location = new System.Drawing.Point(263, 588);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(120, 50);
             this.btnIniciar.TabIndex = 2;
@@ -57,7 +57,7 @@ namespace Interfaz_Grafica_PETVET
             this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
             this.btnSalir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSalir.ForeColor = System.Drawing.Color.Transparent;
-            this.btnSalir.Location = new System.Drawing.Point(454, 354);
+            this.btnSalir.Location = new System.Drawing.Point(855, 588);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(120, 50);
             this.btnSalir.TabIndex = 3;
@@ -69,7 +69,7 @@ namespace Interfaz_Grafica_PETVET
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Lato Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(226, 153);
+            this.label1.Location = new System.Drawing.Point(263, 328);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 24);
             this.label1.TabIndex = 2;
@@ -80,7 +80,7 @@ namespace Interfaz_Grafica_PETVET
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Lato Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(226, 238);
+            this.label2.Location = new System.Drawing.Point(859, 328);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 24);
             this.label2.TabIndex = 3;
@@ -88,18 +88,18 @@ namespace Interfaz_Grafica_PETVET
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(399, 153);
+            this.txtID.Location = new System.Drawing.Point(222, 361);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(175, 27);
+            this.txtID.Size = new System.Drawing.Size(220, 27);
             this.txtID.TabIndex = 0;
             this.txtID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtcontra
             // 
-            this.txtcontra.Location = new System.Drawing.Point(399, 235);
+            this.txtcontra.Location = new System.Drawing.Point(808, 361);
             this.txtcontra.Name = "txtcontra";
             this.txtcontra.PasswordChar = '*';
-            this.txtcontra.Size = new System.Drawing.Size(175, 27);
+            this.txtcontra.Size = new System.Drawing.Size(220, 27);
             this.txtcontra.TabIndex = 1;
             this.txtcontra.TextChanged += new System.EventHandler(this.txtcontra_TextChanged);
             // 
@@ -107,7 +107,7 @@ namespace Interfaz_Grafica_PETVET
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Lato Black", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(113, 9);
+            this.label3.Location = new System.Drawing.Point(382, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(595, 80);
             this.label3.TabIndex = 6;
@@ -118,7 +118,9 @@ namespace Interfaz_Grafica_PETVET
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(1257, 716);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtcontra);
             this.Controls.Add(this.txtID);
@@ -126,6 +128,7 @@ namespace Interfaz_Grafica_PETVET
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnIniciar);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Ingreso_de_Usuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -56,7 +56,7 @@ namespace Interfaz_Grafica_PETVET
             this.consultarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1257, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -72,14 +72,14 @@ namespace Interfaz_Grafica_PETVET
             // ingresarSocioToolStripMenuItem
             // 
             this.ingresarSocioToolStripMenuItem.Name = "ingresarSocioToolStripMenuItem";
-            this.ingresarSocioToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.ingresarSocioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.ingresarSocioToolStripMenuItem.Text = "Socio";
             this.ingresarSocioToolStripMenuItem.Click += new System.EventHandler(this.ingresarSocioToolStripMenuItem_Click);
             // 
             // ingresarMascotaToolStripMenuItem
             // 
             this.ingresarMascotaToolStripMenuItem.Name = "ingresarMascotaToolStripMenuItem";
-            this.ingresarMascotaToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.ingresarMascotaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.ingresarMascotaToolStripMenuItem.Text = "Mascota";
             // 
             // modificarToolStripMenuItem
@@ -93,7 +93,7 @@ namespace Interfaz_Grafica_PETVET
             // socioToolStripMenuItem
             // 
             this.socioToolStripMenuItem.Name = "socioToolStripMenuItem";
-            this.socioToolStripMenuItem.Size = new System.Drawing.Size(129, 26);
+            this.socioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.socioToolStripMenuItem.Text = "Socio";
             // 
             // eliminarToolStripMenuItem
@@ -108,14 +108,14 @@ namespace Interfaz_Grafica_PETVET
             // bajaDeSocioToolStripMenuItem
             // 
             this.bajaDeSocioToolStripMenuItem.Name = "bajaDeSocioToolStripMenuItem";
-            this.bajaDeSocioToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.bajaDeSocioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.bajaDeSocioToolStripMenuItem.Text = " Socio";
             this.bajaDeSocioToolStripMenuItem.Click += new System.EventHandler(this.bajaDeSocioToolStripMenuItem_Click);
             // 
             // bajaDeMascotaToolStripMenuItem
             // 
             this.bajaDeMascotaToolStripMenuItem.Name = "bajaDeMascotaToolStripMenuItem";
-            this.bajaDeMascotaToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.bajaDeMascotaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.bajaDeMascotaToolStripMenuItem.Text = "Mascota";
             this.bajaDeMascotaToolStripMenuItem.Click += new System.EventHandler(this.bajaDeMascotaToolStripMenuItem_Click);
             // 
@@ -151,8 +151,12 @@ namespace Interfaz_Grafica_PETVET
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(1257, 716);
             this.Controls.Add(this.menuStrip1);
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Acciones";
