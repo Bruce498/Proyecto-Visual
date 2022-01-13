@@ -8,5 +8,10 @@ namespace Proyecto_Final
 {
     class Seleccionarmascota
     {
+        public string nombre;
+        public string especie;
+        public string raza;
+        public string color;
+        public DateTime FechaNacimiento;
     }
 }

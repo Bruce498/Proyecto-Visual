@@ -36,8 +36,8 @@ namespace Interfaz_Grafica_PETVET
 
         private void bajaDeSocioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EliminarSocio eliminarSocio = new EliminarSocio();
-            eliminarSocio.Show();
+            Eliminar_Sociocs EliminarSocio = new Eliminar_Sociocs();
+            EliminarSocio.Show();
             this.Dispose();
         }
     }

@@ -249,12 +249,14 @@ namespace Proyecto_Visual
 
         //CONSULTAR MASCOTA
 
-        public List<string> Seleccionarmascota(string nombre)
+        public List<Seleccionarmascota> Seleccionarmascota(string cedulaidentidad)
         {
-            string sqlSelect = "select * from Animal";
-            List<string> listaNombres = new List<string>();
+            //a.* muestra todos los datos de la tabla animal
+            string sqlSelect = "SELECT a.* from [dbo].[Cliente] C inner join Animal A on c.IdCliente = a.IdCliente where c.cedulaidentidad = @ci"; 
+           
+            List<Seleccionarmascota> listaDatos = new List<Seleccionarmascota>();
 
-
+            
             var comm = new SqlCommand
             {
                 Connection = conectarbd,
@@ -268,23 +270,27 @@ namespace Proyecto_Visual
                 while (r.Read())
                 {
 
-                    string nombreRecibido = r["Nombre"].ToString();
+                    Seleccionarmascota Datos = new Seleccionarmascota();
 
-                    string apellido = r["Apellido"].ToString();
+                    Datos.nombre = r["Nombre"].ToString();
+                    Datos.especie = r["Especie"].ToString();
+                    Datos.raza = r["Raza"].ToString();
+                    Datos.color = r["Color"].ToString();
+                    Datos.FechaNacimiento = r["FechaNacimiento"].ToDate();
 
 
-                    listaNombres.Add(nombreRecibido);
+                    listaDatos.Add(Datos);
 
                     // Acá se obtienen los datos del Reader, lo que devuelve la Base de Datos de esa consulta
                 }
 
-                return listaNombres;
+                return listaDatos;
             }
             catch (Exception ex)
             {
 
             }
-            return listaNombres;
+            return listaDatos;
         }
 
         // INSERTAR MASCOTA
@@ -294,17 +300,10 @@ namespace Proyecto_Visual
 
             Agregarmascota insertarmascota = new Agregarmascota();
 
-            insertarmascota.nombre = "Simba";
-            insertarmascota.especie = "Canino";
-            insertarmascota.raza = "Labrador";
-            insertarmascota.color = "Negro";
-            //insertarmascota.fechanacimiento = 04/10/2018;
+            
 
 
 
-            //string sqlInsert = "Insert into Animal (Nombre, Especie, Raza, Color, Fecha nacimiento) Values ('" + insertarmascota.nombre + "', '" + insertarmascota.especie + "''" + insertarmascota.raza + "', '" + insertarmascota.color + "''" + insertarmascota.fechanacimiento + "')";
-
-            //INSERT INTO table_name(column1, column2, column3, ...) VALUES(value1, value2, value3, ...); ***FUNCION DE INSERTAR DATOS***
 
             var conn = new SqlConnection("Data Source = DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
 
@@ -395,10 +394,6 @@ namespace Proyecto_Visual
         }
 
     }
-
-    //ELIMINAR MASCOTA
-
-
 }
 
 
