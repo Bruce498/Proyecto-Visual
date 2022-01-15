@@ -42,7 +42,7 @@ namespace Interfaz_Grafica_PETVET
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Font = new System.Drawing.Font("Lato Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(466, -1);
+            this.label1.Location = new System.Drawing.Point(449, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(456, 36);
             this.label1.TabIndex = 0;
@@ -61,7 +61,7 @@ namespace Interfaz_Grafica_PETVET
             this.Acceder.Text = "Acceder";
             this.Acceder.UseVisualStyleBackColor = true;
             this.Acceder.Click += new System.EventHandler(this.button1_Click_1);
-            
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);

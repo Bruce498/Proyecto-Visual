@@ -102,5 +102,10 @@ namespace Interfaz_Grafica_PETVET
         {
 
         }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

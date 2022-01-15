@@ -31,5 +31,10 @@ namespace Interfaz_Grafica_PETVET
         {
 
         }
+
+        private void Eliminar_Mascota_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

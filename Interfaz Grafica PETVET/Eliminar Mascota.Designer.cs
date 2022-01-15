@@ -122,8 +122,10 @@ namespace Interfaz_Grafica_PETVET
             this.Controls.Add(this.Eliminar);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Eliminar_Mascota";
             this.Text = "Eliminar_Mascota";
+            this.Load += new System.EventHandler(this.Eliminar_Mascota_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -65,16 +65,15 @@ namespace Proyecto_Visual
                 while (r.Read())
                 {
                     Consultar_Datos consultar_Datos = new Consultar_Datos();
-                    
+                   
                     consultar_Datos.nombre = r ["Nombre"].ToString();
                     consultar_Datos.segundonombre = r ["SegundoNombre"].ToString();
                     consultar_Datos.apellido = r ["Apellido"].ToString();
                     consultar_Datos.direccion = r ["Direccion"].ToString();
                     consultar_Datos.ciudad = r ["Ciudad"].ToString();
-                    //consultar_Datos.CuentaBancaria = r ["CuentaBancaria"].
-                    //consultar_Datos.CedulaIdentidad = r["CedulaIdentidad"].;
-                    //consultar_Datos.telefono = r["Telefono"].;
-
+                    consultar_Datos.CuentaBancaria = int.Parse(r["CuentaBancaria"].ToString());
+                    CedulaIdentidad = int.Parse(r["CedulaIdentidad"].ToString();
+                    consultar_Datos.telefono = int.Parse(r["telefono"].ToString());
 
 
                     listadatos.Add(consultar_Datos); // devuelve los datos en una lista
@@ -276,7 +275,7 @@ namespace Proyecto_Visual
                     Datos.especie = r["Especie"].ToString();
                     Datos.raza = r["Raza"].ToString();
                     Datos.color = r["Color"].ToString();
-                    Datos.FechaNacimiento = r["FechaNacimiento"].ToDate();
+                    Datos.FechaNacimiento = int.Parse(r["FechaNacimiento"].ToString());
 
 
                     listaDatos.Add(Datos);
