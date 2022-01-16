@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Veterinaria.Dominio;
 
 namespace Veterinaria.Interfaz
 {
@@ -35,6 +29,27 @@ namespace Veterinaria.Interfaz
         private void Eliminar_Mascota_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+            ConexionBD conexionDB = new ConexionBD();
+            Eliminarmascota eliminarmascota = new Eliminarmascota
+            {
+
+                Nombre = this.nombre.Text,
+                CedulaIdentidad = int.Parse(this.cedula.Text)
+            };
+            bool ok = conexionDB.Eliminarmascota(eliminarmascota);
+
+            if (ok)
+            {
+                MessageBox.Show("Se elimino la mascota correctamente");
+            }
+            else
+            {
+                MessageBox.Show("NO se pudo eliminar la mascota.");
+            }
         }
     }
 }

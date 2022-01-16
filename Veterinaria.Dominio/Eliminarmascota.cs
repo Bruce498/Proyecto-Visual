@@ -3,6 +3,6 @@
     public class Eliminarmascota
     {
         public int CedulaIdentidad { get; set; }
-        public int IdAnimal { get; set; }
+        public string Nombre { get; set; }
     }
 }

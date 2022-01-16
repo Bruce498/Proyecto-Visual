@@ -8,6 +8,6 @@ namespace Veterinaria.Dominio
         public string Especie { get; set; }
         public string Raza { get; set; }
         public string Color { get; set; }
-        public DateTime FechaNacimiento { get; set; }
+        public string FechaNacimiento { get; set; }
     }
 }

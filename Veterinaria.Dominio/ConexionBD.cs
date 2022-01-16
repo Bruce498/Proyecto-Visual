@@ -8,35 +8,25 @@ namespace Veterinaria.Dominio
     public class ConexionBD
     {
         private string cadena = "Data Source = DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True";
-        private SqlConnection conectarbd = new SqlConnection();
+        //private string cadena = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public ConexionBD()
-        {
-            conectarbd.ConnectionString = cadena;
-        }
-
-        public void Cerrar()
-        {
-            conectarbd.Close();
-        }
 
         //***CONSULTAR DATOS***
         public List<Consultar_Datos> Seleccionar()
         {
-            string sqlSelect = "SELECT [Nombre],[SegundoNombre], [Apellido],[CedulaIdentidad],[CuentaBancaria],[Direccion],[Telefono],[Ciudad],[IdCliente] " +
+            string sql = "SELECT [Nombre],[SegundoNombre], [Apellido],[CedulaIdentidad],[CuentaBancaria],[Direccion],[Telefono],[Ciudad],[IdCliente] " +
                                "FROM [VeterinariaPetVet].[dbo].[Cliente]";
 
 
             List<Consultar_Datos> listadatos = new List<Consultar_Datos>();
 
-            var comm = new SqlCommand
-            {
-                Connection = conectarbd,
-                CommandType = CommandType.Text,
-                CommandText = sqlSelect,
-            };
+            var conn = new SqlConnection(cadena);
+            var comm = new SqlCommand(sql, conn);
+
+
             try
             {
+                conn.Open();
                 SqlDataReader r = comm.ExecuteReader();
 
                 while (r.Read())
@@ -62,7 +52,12 @@ namespace Veterinaria.Dominio
             }
             catch (Exception ex)
             {
-                return null;
+                throw;
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
             }
 
         }
@@ -71,7 +66,7 @@ namespace Veterinaria.Dominio
         public bool AgregarSocio(AgegarSocio insertarsocio)
         {
 
-            string sqlInsert = "INSERT INTO [dbo].[Cliente] ([Nombre] ,[SegundoNombre] ," +
+            string sql = "INSERT INTO [dbo].[Cliente] ([Nombre] ,[SegundoNombre] ," +
                                                              "[Apellido],[CedulaIdentidad]," +
                                                              "[CuentaBancaria],[Direccion]," +
                                                              "[Telefono],[Ciudad]) " +
@@ -80,15 +75,7 @@ namespace Veterinaria.Dominio
 
 
             var conn = new SqlConnection(cadena);
-
-
-            conn.Open();
-            var comm = new SqlCommand
-            {
-                Connection = conn,
-                CommandType = CommandType.Text,
-                CommandText = sqlInsert,
-            };
+            var comm = new SqlCommand(sql, conn);
 
             comm.Parameters.AddWithValue("nombre", insertarsocio.Nombre);
             comm.Parameters.AddWithValue("segundoNombre", insertarsocio.SegundoNombre);
@@ -99,11 +86,9 @@ namespace Veterinaria.Dominio
             comm.Parameters.AddWithValue("telefono", insertarsocio.Telefono);
             comm.Parameters.AddWithValue("ciudad", insertarsocio.Ciudad);
 
-
-            // Ejecuto la Query (la consulta)
-            // Si el resultado es OK, se insertó correctamente, sino, hubo un ERROR
             try
             {
+                conn.Open();
                 int r = comm.ExecuteNonQuery();
                 return r > 0;
             }
@@ -122,11 +107,7 @@ namespace Veterinaria.Dominio
         public bool ModificarSocio(ModificarSocio modificar)
         {
             var conn = new SqlConnection(cadena);
-            var comm = new SqlCommand
-            {
-                Connection = conn,
-                CommandType = CommandType.Text,
-            };
+            var comm = new SqlCommand();
 
             string sql = "update Cliente set ";
             string where = " WHERE CedulaIdentidad = @cedula";
@@ -154,12 +135,13 @@ namespace Veterinaria.Dominio
             sql = sql.Substring(0, sql.Length - 1) + where;
 
             comm.CommandText = sql;
-            conn.Open();
+            comm.Connection = conn;
 
             // Ejecuto la Query (la consulta)
             // Si el resultado es OK, se intertó correctamente, sino, hubo un ERROR
             try
             {
+                conn.Open();
                 int r = comm.ExecuteNonQuery();
                 return r > 0;
             }
@@ -178,35 +160,40 @@ namespace Veterinaria.Dominio
         public bool EliminarSocio(EliminarSocio eliminarSocio)
         {
 
-            string sqlDelete = "DELETE from [dbo].[Cliente] where CedulaIdentidad = @ci";
-
             var conn = new SqlConnection(cadena);
+            var transaction = conn.BeginTransaction();
 
-
-            conn.Open();
-            var comm = new SqlCommand
+            var borrarCliente = new SqlCommand
             {
                 Connection = conn,
-                CommandType = CommandType.Text,
-                CommandText = sqlDelete,
+                CommandText = "DELETE from [dbo].[Cliente] where CedulaIdentidad = @ci",
+                Transaction = transaction
             };
+            borrarCliente.Parameters.AddWithValue("ci", eliminarSocio.Cedula);
+
+            var borrarMascota = new SqlCommand
+            {
+                Connection = conn,
+                CommandText = "DELETE FROM Animal where IdCliente = (SELECT IdCliente FROM Cliente WHERE CedulaIdentidad = @ci)",
+                Transaction = transaction
+            };
+            borrarMascota.Parameters.AddWithValue("ci", eliminarSocio.Cedula);
 
 
-            comm.Parameters.AddWithValue("ci", eliminarSocio.Cedula);
-
-
-
-            // Ejecuto la Query (la consulta)
-            // Si el resultado es OK, se intertó correctamente, sino, hubo un ERROR
             try
             {
-                int r = comm.ExecuteNonQuery();
-                return r < 0;
+                conn.Open();
+                int borrarClienteResult = borrarCliente.ExecuteNonQuery();
+                int borrarMascotaResult = borrarMascota.ExecuteNonQuery();
+
+                transaction.Commit();
+
+                return borrarClienteResult > 0;
             }
             catch (Exception ex)
             {
+                transaction.Rollback();
                 return false;
-
             }
             finally
             {
@@ -219,88 +206,91 @@ namespace Veterinaria.Dominio
         public List<Seleccionarmascota> Seleccionarmascota(string cedulaidentidad)
         {
             //a.* muestra todos los datos de la tabla animal
-            string sqlSelect = "SELECT a.* from [dbo].[Cliente] C inner join Animal A on c.IdCliente = a.IdCliente where c.cedulaidentidad = @ci";
+            string sql = "SELECT a.* from [dbo].[Cliente] C inner join Animal A on c.IdCliente = a.IdCliente where c.cedulaidentidad = @ci";
 
-            List<Seleccionarmascota> listaDatos = new List<Seleccionarmascota>();
+            List<Seleccionarmascota> mascotas = new List<Seleccionarmascota>();
 
+            var conn = new SqlConnection(cadena);
+            var comm = new SqlCommand(sql, conn);
 
-            var comm = new SqlCommand
-            {
-                Connection = conectarbd,
-                CommandType = CommandType.Text,
-                CommandText = sqlSelect,
-            };
+            comm.Parameters.AddWithValue("@ci", cedulaidentidad);
+
             try
             {
+                conn.Open();
                 SqlDataReader r = comm.ExecuteReader();
 
                 while (r.Read())
                 {
 
-                    Seleccionarmascota Datos = new Seleccionarmascota();
+                    Seleccionarmascota mascota = new Seleccionarmascota();
 
-                    Datos.Nombre = r["Nombre"].ToString();
-                    Datos.Especie = r["Especie"].ToString();
-                    Datos.Raza = r["Raza"].ToString();
-                    Datos.Color = r["Color"].ToString();
-                    Datos.FechaNacimiento = r.GetDateTime(r.GetOrdinal("FechaNacimiento"));
+                    mascota.Nombre = r["Nombre"].ToString();
+                    mascota.Especie = r["Especie"].ToString();
+                    mascota.Raza = r["Raza"].ToString();
+                    mascota.Color = r["Color"].ToString();
+                    mascota.FechaNacimiento = r["Fecha Nacimiento"].ToString();
 
-
-                    listaDatos.Add(Datos);
+                    mascotas.Add(mascota);
 
                     // Acá se obtienen los datos del Reader, lo que devuelve la Base de Datos de esa consulta
                 }
 
-                return listaDatos;
+                return mascotas;
             }
             catch (Exception ex)
             {
-
+                throw;
             }
-            return listaDatos;
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
         }
 
         // INSERTAR MASCOTA
-        public void Agregarmascota()
+        public bool Agregarmascota(Agregarmascota insertarmascota)
         {
 
-            Agregarmascota insertarmascota = new Agregarmascota();
+            string sql = "INSERT INTO [dbo].[Animal] ([IdCliente]," +
+                                                     "[Nombre]," +
+                                                     "[Especie]," +
+                                                     "[Raza]," +
+                                                     "[Color]," +
+                                                     "[Fecha Nacimiento]) " +
+                         "VALUES ((select idcliente from Cliente where CedulaIdentidad = @ci), " +
+                                  "@nombre, " +
+                                  "@especie, " +
+                                  "@raza, " +
+                                  "@color, " +
+                                  "@fechanac)";
 
-
-
-
-
-
-            var conn = new SqlConnection("Data Source = DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
-
-
+            SqlConnection conn = new SqlConnection(cadena);
             conn.Open();
+
             var comm = new SqlCommand
             {
                 Connection = conn,
-                CommandType = CommandType.Text,
-                CommandText = string.Empty,
+                CommandText = sql,
             };
 
 
-            // Ejecuto la Query (la consulta)
-            // Si el resultado es OK, se insertó correctamente, sino, hubo un ERROR
+            comm.Parameters.AddWithValue("@ci", insertarmascota.Cedula);
+            comm.Parameters.AddWithValue("@nombre", insertarmascota.Nombre);
+            comm.Parameters.AddWithValue("@especie", insertarmascota.Especia);
+            comm.Parameters.AddWithValue("@raza", insertarmascota.Raza);
+            comm.Parameters.AddWithValue("@color", insertarmascota.Color);
+            comm.Parameters.AddWithValue("@fechanac", insertarmascota.FechaNacimiento);
+
             try
             {
                 int r = comm.ExecuteNonQuery();
-                string resultado;
-                if (r > 0)
-                {
-                    resultado = "Datos insertados correctamente";
-                }
-                else
-                {
-                    resultado = "Error al insertar los datos";
-                }
+                return r > 0;
             }
             catch (Exception ex)
             {
-
+                return false;
             }
             finally
             {
@@ -310,49 +300,32 @@ namespace Veterinaria.Dominio
         }
 
         //ELIMINAR MASCOTA
-        public void Eliminarmascota()
+        public bool Eliminarmascota(Eliminarmascota eliminarmascota)
         {
 
-            Eliminarmascota mascota = new Eliminarmascota();
+            string sql = "DELETE FROM Animal " +
+                               "WHERE IdCliente = (SELECT IdCliente " +
+                                                  "FROM Cliente " +
+                                                  "WHERE CedulaIdentidad = @ci) " +
+                               "AND Nombre = @nombre";
 
-            //Hacer la consulta para saber que animal corresponde al socio
+            var conn = new SqlConnection(cadena);
+            var comm = new SqlCommand(sql, conn);
 
-            mascota.CedulaIdentidad = 42144468;
-            mascota.IdAnimal = 1;
-
-
-            string sqlDelete = "Delete Animal Set Animal = " + mascota.IdAnimal + mascota.CedulaIdentidad;
-
-            var conn = new SqlConnection("DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True");
-
-
-            conn.Open();
-            var comm = new SqlCommand
-            {
-                Connection = conn,
-                CommandType = CommandType.Text,
-                CommandText = sqlDelete,
-            };
-
+            comm.Parameters.AddWithValue("@ci", eliminarmascota.CedulaIdentidad);
+            comm.Parameters.AddWithValue("@nombre", eliminarmascota.Nombre);
 
             // Ejecuto la Query (la consulta)
             // Si el resultado es OK, se intertó correctamente, sino, hubo un ERROR
             try
             {
+                conn.Open();
                 int r = comm.ExecuteNonQuery();
-                string resultado;
-                if (r > 0)
-                {
-                    resultado = "Datos eliminados correctamente";
-                }
-                else
-                {
-                    resultado = "Error al eliminar los datos";
-                }
+                return r > 0;
             }
-            catch (Exception ex)
+            catch
             {
-
+                return false;
             }
             finally
             {
