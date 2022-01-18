@@ -71,7 +71,7 @@ namespace Veterinaria.Interfaz
             AgegarSocio agegarSocio = new AgegarSocio
             {
                 Apellido = this.txtApellido.Text,
-                Cedula = cedula,
+                Cedula = Convert.ToInt32(this.txtCedula.Text),
                 Ciudad = this.txtCiudad.Text,
                 CuentaBancaria = Convert.ToInt32(this.txtCuentaBancaria.Text),
                 Direccion = this.txtDireccion.Text,
