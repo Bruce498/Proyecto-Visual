@@ -14,5 +14,22 @@ namespace Veterinaria.Interfaz
         {
 
         }
+
+        private void cedula_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Acciones acciones = new Acciones();
+            acciones.Show();
+            this.Dispose();
+        }
     }
 }

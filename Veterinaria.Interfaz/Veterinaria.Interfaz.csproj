@@ -52,6 +52,18 @@
     <Compile Include="Acciones.Designer.cs">
       <DependentUpon>Acciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarMascotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarMascotas.Designer.cs">
+      <DependentUpon>ConsultarMascotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultarSocio.Designer.cs">
+      <DependentUpon>ConsultarSocio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Eliminar Mascota.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +75,12 @@
     </Compile>
     <Compile Include="Eliminar_Sociocs.Designer.cs">
       <DependentUpon>Eliminar_Sociocs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialClinica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistorialClinica.Designer.cs">
+      <DependentUpon>HistorialClinica.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -88,16 +106,31 @@
     <Compile Include="Ingreso Mascota.Designer.cs">
       <DependentUpon>Ingreso Mascota.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarSocio.Designer.cs">
+      <DependentUpon>ModificarSocio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Acciones.resx">
       <DependentUpon>Acciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarMascotas.resx">
+      <DependentUpon>ConsultarMascotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultarSocio.resx">
+      <DependentUpon>ConsultarSocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Eliminar Mascota.resx">
       <DependentUpon>Eliminar Mascota.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Eliminar_Sociocs.resx">
       <DependentUpon>Eliminar_Sociocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistorialClinica.resx">
+      <DependentUpon>HistorialClinica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
@@ -111,6 +144,9 @@
     <EmbeddedResource Include="Ingreso Mascota.resx">
       <DependentUpon>Ingreso Mascota.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModificarSocio.resx">
+      <DependentUpon>ModificarSocio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -119,6 +155,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -138,6 +175,9 @@
       <Project>{befbb9cc-1320-4f3a-b23e-be11ce77cbac}</Project>
       <Name>Veterinaria.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14-149141_fondo-de-pantalla-negro-y-colores.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

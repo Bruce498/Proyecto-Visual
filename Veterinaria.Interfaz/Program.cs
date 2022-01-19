@@ -9,7 +9,7 @@ namespace Veterinaria.Interfaz
     internal static class Program
     {
         /// <summary>
-        /// Ponto de entrada principal para o aplicativo.
+        /// Ponto de entrada principal para lo aplicativo.
         /// </summary>
         [STAThread]
         static void Main()

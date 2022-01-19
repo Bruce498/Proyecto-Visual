@@ -86,7 +86,9 @@ namespace Veterinaria.Interfaz
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-           
+            Inicio inicio = new Inicio();
+            inicio.Show();
+            this.Dispose();
         }
     }
 }
