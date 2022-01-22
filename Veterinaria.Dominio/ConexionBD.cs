@@ -7,8 +7,8 @@ namespace Veterinaria.Dominio
 {
     public class ConexionBD
     {
-        private string cadena = "Data Source = DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True";
-        //private string cadena = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //private string cadena = "Data Source = DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True";
+        private string cadena = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=VeterinariaPetVet;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 
         //***CONSULTAR DATOS***
