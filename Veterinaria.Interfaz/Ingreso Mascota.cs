@@ -16,5 +16,38 @@ namespace Veterinaria.Interfaz
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Acciones acciones = new Acciones();
+            acciones.Show();
+            this.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Ingreso_Mascota_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cedula_TextChanged(object sender, EventArgs e)
+        {
+            if (cedula == null)
+            {
+                MessageBox.Show("Cliente inexistente");
+                return;
+            }
+        
+        }
+
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

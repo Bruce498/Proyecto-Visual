@@ -183,8 +183,9 @@ namespace Veterinaria.Dominio
             try
             {
                 conn.Open();
-                int borrarClienteResult = borrarCliente.ExecuteNonQuery();
                 int borrarMascotaResult = borrarMascota.ExecuteNonQuery();
+                int borrarClienteResult = borrarCliente.ExecuteNonQuery();
+                
 
                 transaction.Commit();
 
@@ -248,6 +249,55 @@ namespace Veterinaria.Dominio
                     conn.Close();
             }
         }
+
+        //CONSULTAR SOCIO
+
+        public Socio BuscarSocio(int cedulaidentidad)
+        {
+            Socio BuscarSocio = null;
+
+            string sql = "SELECT * from [dbo].[Cliente] where cedulaidentidad = @ci";
+
+            var conn = new SqlConnection(cadena);
+            var comm = new SqlCommand(sql, conn);
+
+            comm.Parameters.AddWithValue("@ci", cedulaidentidad);
+
+            try
+            {
+                conn.Open();
+                SqlDataReader r = comm.ExecuteReader();
+
+                while (r.Read())
+                {
+
+
+                    BuscarSocio = new Socio();
+                    BuscarSocio.Nombre = r["Nombre"].ToString();
+                    BuscarSocio.Apellido = r["Apellido"].ToString();
+                    BuscarSocio.Cedula = (int)r["CedulaIdentidad"];
+                    BuscarSocio.Ciudad = r["Ciudad"].ToString();
+                    BuscarSocio.CuentaBancaria = (long)r["CuentaBancaria"];
+                    BuscarSocio.Direccion = r["Direccion"].ToString();
+                    BuscarSocio.Telefono = (int)r["Telefono"];
+
+                    // Acá se obtienen los datos del Reader, lo que devuelve la Base de Datos de esa consulta
+                }
+
+                return BuscarSocio;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+        }
+
+        //HISTORIACLINICA
 
         // INSERTAR MASCOTA
         public bool Agregarmascota(Agregarmascota insertarmascota)

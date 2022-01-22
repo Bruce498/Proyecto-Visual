@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Veterinaria.Dominio;
 
@@ -33,25 +34,67 @@ namespace Veterinaria.Interfaz
 
             cedulaOk = cedulaOk && this.txtCedula.Text.Length == 8;
 
-            if (!cedulaOk)
+            int Telefono = 0;
+            bool TelefonoOk = int.TryParse(this.txtTelefono.Text, out Telefono);
+           
+            TelefonoOk = TelefonoOk && this.txtTelefono.Text.Length == 9;
+
+           
+            bool cuentabancariaOK = Int64.TryParse(this.txtCuentaBancaria.Text, out Int64 CuentaBancaria);
+
+            cuentabancariaOK = CuentaBancaria > 0 ? true : false;
+
+            string Nombre;
+            string Apellido;
+
+            if (String.IsNullOrEmpty(this.Nombre.Text) || !Regex.IsMatch(this.Nombre.Text, @"^[a-zA-Z]+$")) //Esta condicion lo que hace es que si el nombre esta vacio salta error.
+                                                                                                   //y tiene la condicion que debe de ser solo letras lo q ingrese.             
+            {
+                MessageBox.Show("Nombre es incorrecto");
+                return;
+            }
+            
+            else if (String.IsNullOrEmpty(this.txtApellido.Text))
+            {
+                MessageBox.Show("Apellido es incorrecto");
+                return;
+            }
+
+            else if (!cedulaOk)
             {
                 MessageBox.Show("Cedula no es correcta");
                 return;
             }
 
+            else if (!cuentabancariaOK)
+            {
+                
+                MessageBox.Show("Numero de Cuenta Bancaria incorrecto");
+                return;
+
+            }
+            ConexionBD conexionBD = new ConexionBD();
+            Socio socio = conexionBD.BuscarSocio(Convert.ToInt32(this.txtCedula.Text));
+            if (socio != null)
+            {
+                MessageBox.Show("Socio ya existente");
+                return;
+            }
+            
             AgegarSocio agegarSocio = new AgegarSocio
             {
+                Nombre = this.Nombre.Text ,
+                SegundoNombre = this.txtSegundoNombre.Text,
                 Apellido = this.txtApellido.Text,
-                Cedula = cedula,
+                Cedula = Convert.ToInt32(this.txtCedula.Text),
                 Ciudad = this.txtCiudad.Text,
-                CuentaBancaria = Convert.ToInt32(this.txtCuentaBancaria.Text),
+                CuentaBancaria = Convert.ToInt64(this.txtCuentaBancaria.Text),
                 Direccion = this.txtDireccion.Text,
-                Nombre = this.txtNombre.Text,
                 Telefono = Convert.ToInt32(this.txtTelefono.Text),
-                SegundoNombre = this.txtSegundoNombre.Text
+                
             };
 
-            ConexionBD conexionBD = new ConexionBD();
+            
             bool ok = conexionBD.AgregarSocio(agegarSocio);
 
             if (ok)
