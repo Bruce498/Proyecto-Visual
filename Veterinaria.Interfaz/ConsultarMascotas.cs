@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Veterinaria.Dominio;
 
 namespace Veterinaria.Interfaz
 {
@@ -22,6 +23,13 @@ namespace Veterinaria.Interfaz
             Acciones acciones = new Acciones();
             acciones.Show();
             this.Dispose();
+        }
+
+        private void Eliminar_Click(object sender, EventArgs e)
+        {
+            ConexionBD conexionBD = new ConexionBD();
+            var mascotas = conexionBD.Seleccionarmascota(this.cedula.Text);
+            this.seleccionarmascotaBindingSource.DataSource = mascotas;
         }
     }
 }

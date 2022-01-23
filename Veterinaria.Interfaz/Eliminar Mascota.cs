@@ -37,13 +37,18 @@ namespace Veterinaria.Interfaz
             Eliminarmascota eliminarmascota = new Eliminarmascota
             {
 
-                CedulaIdentidad = int.Parse(this.cedula.Text)
+                CedulaIdentidad = int.Parse(this.cedula.Text),
+                Nombre = this.mascota.Text.Trim()
             };
             bool ok = conexionDB.Eliminarmascota(eliminarmascota);
 
             if (ok)
             {
                 MessageBox.Show("Se elimino la mascota correctamente");
+
+                Acciones acciones = new Acciones();
+                acciones.Show();
+                this.Dispose();
             }
             else
             {

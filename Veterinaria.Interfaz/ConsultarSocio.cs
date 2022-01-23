@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Veterinaria.Dominio;
 
 namespace Veterinaria.Interfaz
 {
@@ -26,7 +27,9 @@ namespace Veterinaria.Interfaz
 
         private void Eliminar_Click(object sender, EventArgs e)
         {
-            
+            ConexionBD conexionBD = new ConexionBD();
+            var socio = conexionBD.BuscarSocio(int.Parse(this.cedula.Text));
+            this.socioBindingSource.DataSource = new List<Socio> { socio };
         }
     }
 }

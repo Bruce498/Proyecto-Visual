@@ -7,8 +7,8 @@ namespace Veterinaria.Dominio
 {
     public class ConexionBD
     {
-        //private string cadena = "Data Source = DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True";
-        private string cadena = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=VeterinariaPetVet;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private string cadena = "Data Source = DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True";
+        //private string cadena = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=VeterinariaPetVet;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 
         //***CONSULTAR DATOS***
@@ -161,6 +161,7 @@ namespace Veterinaria.Dominio
         {
 
             var conn = new SqlConnection(cadena);
+            conn.Open();
             var transaction = conn.BeginTransaction();
 
             var borrarCliente = new SqlCommand
@@ -182,10 +183,9 @@ namespace Veterinaria.Dominio
 
             try
             {
-                conn.Open();
                 int borrarMascotaResult = borrarMascota.ExecuteNonQuery();
                 int borrarClienteResult = borrarCliente.ExecuteNonQuery();
-                
+
 
                 transaction.Commit();
 
@@ -275,11 +275,11 @@ namespace Veterinaria.Dominio
                     BuscarSocio = new Socio();
                     BuscarSocio.Nombre = r["Nombre"].ToString();
                     BuscarSocio.Apellido = r["Apellido"].ToString();
-                    BuscarSocio.Cedula = (int)r["CedulaIdentidad"];
+                    BuscarSocio.Cedula = r["CedulaIdentidad"].ToString();
                     BuscarSocio.Ciudad = r["Ciudad"].ToString();
-                    BuscarSocio.CuentaBancaria = (long)r["CuentaBancaria"];
+                    BuscarSocio.CuentaBancaria = r["CuentaBancaria"].ToString();
                     BuscarSocio.Direccion = r["Direccion"].ToString();
-                    BuscarSocio.Telefono = (int)r["Telefono"];
+                    BuscarSocio.Telefono = r["Telefono"].ToString();
 
                     // Acá se obtienen los datos del Reader, lo que devuelve la Base de Datos de esa consulta
                 }
@@ -382,6 +382,58 @@ namespace Veterinaria.Dominio
                 if (conn.State != ConnectionState.Closed)
                     conn.Close();
             }
+        }
+
+        public List<Historial> Historial(string cedula)
+        {
+            string sql = "SELECT [IdHistoriaClinica],[IdAnimal],[IdVeterinario],[IdEnfermedad],[Fecha Enfermedad] " +
+                         "FROM [dbo].[HistoriaClinica] " +
+                         "where idanimal in (select idanimal " +
+                                            "from animal " +
+                                            "where IdCliente in (select idcliente " +
+                                                                "from Cliente " +
+                                                                "where CedulaIdentidad = @ci)) ";
+            var conn = new SqlConnection(cadena);
+            var comm = new SqlCommand(sql, conn);
+
+            comm.Parameters.AddWithValue("@ci", cedula);
+
+            List<Historial> historiales = new List<Historial>();
+
+            try
+            {
+                conn.Open();
+                SqlDataReader r = comm.ExecuteReader();
+
+                while (r.Read())
+                {
+
+                    Historial historial = new Historial();
+
+                    historial.IdHistoriaClinica = r["IdHistoriaClinica"].ToString();
+                    historial.IdAnimal = r["IdAnimal"].ToString();
+                    historial.IdVeterinario = r["IdVeterinario"].ToString();
+                    historial.IdEnfermedad = r["IdEnfermedad"].ToString();
+                    historial.Fecha_Enfermedad = r["Fecha Enfermedad"].ToString();
+
+                    historiales.Add(historial);
+
+                    // Acá se obtienen los datos del Reader, lo que devuelve la Base de Datos de esa consulta
+                }
+
+                return historiales;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+
+
         }
 
     }
