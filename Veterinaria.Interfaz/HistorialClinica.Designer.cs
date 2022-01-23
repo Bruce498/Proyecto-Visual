@@ -36,15 +36,15 @@ namespace Veterinaria.Interfaz
             this.Eliminar = new System.Windows.Forms.Button();
             this.cedula = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.historialBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idHistoriaClinicaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idAnimalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idVeterinarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idEnfermedadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.animalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.veterinarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.enfermedadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaEnfermedadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -113,6 +113,10 @@ namespace Veterinaria.Interfaz
             this.label2.TabIndex = 4;
             this.label2.Text = "Ingrese Cedula del Socio";
             // 
+            // historialBindingSource
+            // 
+            this.historialBindingSource.DataSource = typeof(Veterinaria.Dominio.Historial);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -121,20 +125,16 @@ namespace Veterinaria.Interfaz
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idHistoriaClinicaDataGridViewTextBoxColumn,
-            this.idAnimalDataGridViewTextBoxColumn,
-            this.idVeterinarioDataGridViewTextBoxColumn,
-            this.idEnfermedadDataGridViewTextBoxColumn,
+            this.animalDataGridViewTextBoxColumn,
+            this.veterinarioDataGridViewTextBoxColumn,
+            this.enfermedadDataGridViewTextBoxColumn,
             this.fechaEnfermedadDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.historialBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(185, 219);
+            this.dataGridView1.Location = new System.Drawing.Point(212, 217);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(544, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(549, 150);
             this.dataGridView1.TabIndex = 8;
-            // 
-            // historialBindingSource
-            // 
-            this.historialBindingSource.DataSource = typeof(Veterinaria.Dominio.Historial);
             // 
             // idHistoriaClinicaDataGridViewTextBoxColumn
             // 
@@ -143,26 +143,26 @@ namespace Veterinaria.Interfaz
             this.idHistoriaClinicaDataGridViewTextBoxColumn.Name = "idHistoriaClinicaDataGridViewTextBoxColumn";
             this.idHistoriaClinicaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // idAnimalDataGridViewTextBoxColumn
+            // animalDataGridViewTextBoxColumn
             // 
-            this.idAnimalDataGridViewTextBoxColumn.DataPropertyName = "IdAnimal";
-            this.idAnimalDataGridViewTextBoxColumn.HeaderText = "IdAnimal";
-            this.idAnimalDataGridViewTextBoxColumn.Name = "idAnimalDataGridViewTextBoxColumn";
-            this.idAnimalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.animalDataGridViewTextBoxColumn.DataPropertyName = "Animal";
+            this.animalDataGridViewTextBoxColumn.HeaderText = "Animal";
+            this.animalDataGridViewTextBoxColumn.Name = "animalDataGridViewTextBoxColumn";
+            this.animalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // idVeterinarioDataGridViewTextBoxColumn
+            // veterinarioDataGridViewTextBoxColumn
             // 
-            this.idVeterinarioDataGridViewTextBoxColumn.DataPropertyName = "IdVeterinario";
-            this.idVeterinarioDataGridViewTextBoxColumn.HeaderText = "IdVeterinario";
-            this.idVeterinarioDataGridViewTextBoxColumn.Name = "idVeterinarioDataGridViewTextBoxColumn";
-            this.idVeterinarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.veterinarioDataGridViewTextBoxColumn.DataPropertyName = "Veterinario";
+            this.veterinarioDataGridViewTextBoxColumn.HeaderText = "Veterinario";
+            this.veterinarioDataGridViewTextBoxColumn.Name = "veterinarioDataGridViewTextBoxColumn";
+            this.veterinarioDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // idEnfermedadDataGridViewTextBoxColumn
+            // enfermedadDataGridViewTextBoxColumn
             // 
-            this.idEnfermedadDataGridViewTextBoxColumn.DataPropertyName = "IdEnfermedad";
-            this.idEnfermedadDataGridViewTextBoxColumn.HeaderText = "IdEnfermedad";
-            this.idEnfermedadDataGridViewTextBoxColumn.Name = "idEnfermedadDataGridViewTextBoxColumn";
-            this.idEnfermedadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.enfermedadDataGridViewTextBoxColumn.DataPropertyName = "Enfermedad";
+            this.enfermedadDataGridViewTextBoxColumn.HeaderText = "Enfermedad";
+            this.enfermedadDataGridViewTextBoxColumn.Name = "enfermedadDataGridViewTextBoxColumn";
+            this.enfermedadDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fechaEnfermedadDataGridViewTextBoxColumn
             // 
@@ -188,8 +188,8 @@ namespace Veterinaria.Interfaz
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HistorialClinica";
             this.Text = "HistorialClinicocs";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historialBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,12 +202,12 @@ namespace Veterinaria.Interfaz
         private System.Windows.Forms.Button Eliminar;
         private System.Windows.Forms.TextBox cedula;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.BindingSource historialBindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idHistoriaClinicaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idAnimalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idVeterinarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEnfermedadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn animalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn veterinarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn enfermedadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaEnfermedadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource historialBindingSource;
     }
 }

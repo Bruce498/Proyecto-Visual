@@ -386,9 +386,11 @@ namespace Veterinaria.Dominio
 
         public List<Historial> Historial(string cedula)
         {
-            string sql = "SELECT [IdHistoriaClinica],[IdAnimal],[IdVeterinario],[IdEnfermedad],[Fecha Enfermedad] " +
-                         "FROM [dbo].[HistoriaClinica] " +
-                         "where idanimal in (select idanimal " +
+            string sql = "SELECT hc.IdHistoriaClinica,a.Nombre as Animal,v.Nombre as Veterinario,e.Nombre as Enfermedad,hc.[Fecha Enfermedad]  " +
+                         "FROM HistoriaClinica hc INNER JOIN Enfermedad e on e.IdEnfermedad = hc.IdEnfermedad " +
+                         "INNER JOIN Animal a on a.IdAnimal = hc.IdAnimal " +
+                         "INNER JOIN Veterinario v on v.IdVeterinario = hc.IdVeterinario " +
+                         "WHERE hc.IdAnimal in (select idanimal " +
                                             "from animal " +
                                             "where IdCliente in (select idcliente " +
                                                                 "from Cliente " +
@@ -411,9 +413,9 @@ namespace Veterinaria.Dominio
                     Historial historial = new Historial();
 
                     historial.IdHistoriaClinica = r["IdHistoriaClinica"].ToString();
-                    historial.IdAnimal = r["IdAnimal"].ToString();
-                    historial.IdVeterinario = r["IdVeterinario"].ToString();
-                    historial.IdEnfermedad = r["IdEnfermedad"].ToString();
+                    historial.Animal = r["Animal"].ToString();
+                    historial.Veterinario = r["Veterinario"].ToString();
+                    historial.Enfermedad = r["Enfermedad"].ToString();
                     historial.Fecha_Enfermedad = r["Fecha Enfermedad"].ToString();
 
                     historiales.Add(historial);
