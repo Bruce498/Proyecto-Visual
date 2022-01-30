@@ -41,22 +41,23 @@ namespace Veterinaria.Interfaz
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Lato Black", 40F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(629, 9);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(472, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(461, 80);
+            this.label1.Size = new System.Drawing.Size(389, 63);
             this.label1.TabIndex = 0;
             this.label1.Text = "Eliminar Socio";
             // 
             // button2
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.Font = new System.Drawing.Font("Lato Black", 16F, System.Drawing.FontStyle.Bold);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(897, 514);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Location = new System.Drawing.Point(673, 418);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 41);
+            this.button2.Size = new System.Drawing.Size(104, 33);
             this.button2.TabIndex = 7;
             this.button2.Text = "Volver";
             this.button2.UseVisualStyleBackColor = true;
@@ -66,10 +67,10 @@ namespace Veterinaria.Interfaz
             // 
             this.cedula.BackColor = System.Drawing.SystemColors.MenuBar;
             this.cedula.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.cedula.Location = new System.Drawing.Point(756, 202);
-            this.cedula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cedula.Location = new System.Drawing.Point(567, 164);
+            this.cedula.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cedula.Name = "cedula";
-            this.cedula.Size = new System.Drawing.Size(217, 32);
+            this.cedula.Size = new System.Drawing.Size(164, 27);
             this.cedula.TabIndex = 5;
             this.cedula.TextChanged += new System.EventHandler(this.cedula_TextChanged);
             // 
@@ -80,32 +81,35 @@ namespace Veterinaria.Interfaz
             this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(692, 140);
+            this.label2.Location = new System.Drawing.Point(519, 114);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(363, 41);
+            this.label2.Size = new System.Drawing.Size(295, 32);
             this.label2.TabIndex = 4;
             this.label2.Text = "Ingrese Cedula del Socio";
             // 
             // button1
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Font = new System.Drawing.Font("Lato Black", 16F, System.Drawing.FontStyle.Bold);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(685, 514);
+            this.button1.Location = new System.Drawing.Point(514, 418);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 41);
+            this.button1.Size = new System.Drawing.Size(104, 33);
             this.button1.TabIndex = 8;
             this.button1.Text = "Eliminar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Eliminar_Socio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScrollMargin = new System.Drawing.Size(5, 5);
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1253, 570);
+            this.ClientSize = new System.Drawing.Size(940, 463);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.cedula);
@@ -114,7 +118,7 @@ namespace Veterinaria.Interfaz
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Eliminar_Socio";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ShowInTaskbar = false;

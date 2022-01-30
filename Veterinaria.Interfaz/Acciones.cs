@@ -63,13 +63,6 @@ namespace Veterinaria.Interfaz
             this.Close();
         }
 
-        private void hisoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            HistorialClinica historiaclinica = new HistorialClinica();
-            historiaclinica.Show();
-            this.Dispose();
-        }
-
         private void ingresarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -97,6 +90,13 @@ namespace Veterinaria.Interfaz
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void historialClinicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AgregarHistorialClinica historialClinica = new AgregarHistorialClinica();
+            historialClinica.Show();
+            this.Dispose();
         }
     }
 }

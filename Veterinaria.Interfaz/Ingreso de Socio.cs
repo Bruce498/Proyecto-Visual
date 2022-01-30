@@ -10,22 +10,10 @@ namespace Veterinaria.Interfaz
         public Ingreso_de_Socio()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void Ingreso_de_Socio_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -36,10 +24,10 @@ namespace Veterinaria.Interfaz
 
             int Telefono = 0;
             bool TelefonoOk = int.TryParse(this.txtTelefono.Text, out Telefono);
-           
+
             TelefonoOk = TelefonoOk && this.txtTelefono.Text.Length == 9;
 
-           
+
             bool cuentabancariaOK = Int64.TryParse(this.txtCuentaBancaria.Text, out Int64 CuentaBancaria);
 
             cuentabancariaOK = CuentaBancaria > 0 ? true : false;
@@ -48,12 +36,12 @@ namespace Veterinaria.Interfaz
             string Apellido;
 
             if (String.IsNullOrEmpty(this.Nombre.Text) || !Regex.IsMatch(this.Nombre.Text, @"^[a-zA-Z]+$")) //Esta condicion lo que hace es que si el nombre esta vacio salta error.
-                                                                                                   //y tiene la condicion que debe de ser solo letras lo q ingrese.             
+                                                                                                            //y tiene la condicion que debe de ser solo letras lo q ingrese.             
             {
                 MessageBox.Show("Nombre es incorrecto");
                 return;
             }
-            
+
             else if (String.IsNullOrEmpty(this.txtApellido.Text))
             {
                 MessageBox.Show("Apellido es incorrecto");
@@ -68,7 +56,7 @@ namespace Veterinaria.Interfaz
 
             else if (!cuentabancariaOK)
             {
-                
+
                 MessageBox.Show("Numero de Cuenta Bancaria incorrecto");
                 return;
 
@@ -78,12 +66,13 @@ namespace Veterinaria.Interfaz
             if (socio != null)
             {
                 MessageBox.Show("Socio ya existente");
+                LimpiarFormulario();
                 return;
             }
-            
+
             AgegarSocio agegarSocio = new AgegarSocio
             {
-                Nombre = this.Nombre.Text ,
+                Nombre = this.Nombre.Text,
                 SegundoNombre = this.txtSegundoNombre.Text,
                 Apellido = this.txtApellido.Text,
                 Cedula = Convert.ToInt32(this.txtCedula.Text),
@@ -91,10 +80,10 @@ namespace Veterinaria.Interfaz
                 CuentaBancaria = Convert.ToInt64(this.txtCuentaBancaria.Text),
                 Direccion = this.txtDireccion.Text,
                 Telefono = Convert.ToInt32(this.txtTelefono.Text),
-                
+
             };
 
-            
+
             bool ok = conexionBD.AgregarSocio(agegarSocio);
 
             if (ok)
@@ -111,10 +100,7 @@ namespace Veterinaria.Interfaz
             }
         }
 
-        private void Ingreso_de_Socio_Load_1(object sender, EventArgs e)
-        {
 
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -123,24 +109,19 @@ namespace Veterinaria.Interfaz
             this.Dispose();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+
+
+
+
+        private void LimpiarFormulario()
         {
-
-        }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
+            txtApellido.Text = ""; // borra los datos que se ingresaron
+            txtCiudad.Text = ""; // borra los datos que se ingresaron
+            txtCedula.Text = "";
+            txtCuentaBancaria.Text = "";
+            txtDireccion.Text = "";
+            txtSegundoNombre.Text = "";
+            txtTelefono.Text = "";
         }
     }
 }

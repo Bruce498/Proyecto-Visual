@@ -35,6 +35,9 @@ namespace Veterinaria.Interfaz
             this.Eliminar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.lstMascotas = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -59,14 +62,14 @@ namespace Veterinaria.Interfaz
             this.cedula.Name = "cedula";
             this.cedula.Size = new System.Drawing.Size(217, 32);
             this.cedula.TabIndex = 1;
-            this.cedula.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.cedula.TextChanged += new System.EventHandler(this.cedula_TextChanged);
             // 
             // Eliminar
             // 
             this.Eliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Eliminar.BackgroundImage")));
-            this.Eliminar.Font = new System.Drawing.Font("Lato Black", 16F, System.Drawing.FontStyle.Bold);
+            this.Eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.Eliminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Eliminar.Location = new System.Drawing.Point(694, 503);
+            this.Eliminar.Location = new System.Drawing.Point(693, 503);
             this.Eliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Size = new System.Drawing.Size(131, 39);
@@ -79,10 +82,10 @@ namespace Veterinaria.Interfaz
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button2.Font = new System.Drawing.Font("Lato Black", 16F, System.Drawing.FontStyle.Bold);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(930, 503);
+            this.button2.Location = new System.Drawing.Point(1013, 503);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 39);
@@ -101,7 +104,44 @@ namespace Veterinaria.Interfaz
             this.label2.Size = new System.Drawing.Size(560, 76);
             this.label2.TabIndex = 5;
             this.label2.Text = "Eliminar Mascota";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.BackgroundImage")));
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBuscar.Location = new System.Drawing.Point(992, 185);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(131, 39);
+            this.btnBuscar.TabIndex = 7;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBorrar.BackgroundImage")));
+            this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBorrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBorrar.Location = new System.Drawing.Point(992, 239);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(131, 39);
+            this.btnBorrar.TabIndex = 8;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // lstMascotas
+            // 
+            this.lstMascotas.FormattingEnabled = true;
+            this.lstMascotas.ItemHeight = 16;
+            this.lstMascotas.Location = new System.Drawing.Point(586, 317);
+            this.lstMascotas.Name = "lstMascotas";
+            this.lstMascotas.Size = new System.Drawing.Size(634, 148);
+            this.lstMascotas.TabIndex = 9;
+            this.lstMascotas.SelectedIndexChanged += new System.EventHandler(this.lstMascotas_SelectedIndexChanged);
             // 
             // Eliminar_Mascota
             // 
@@ -110,6 +150,9 @@ namespace Veterinaria.Interfaz
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1257, 572);
+            this.Controls.Add(this.lstMascotas);
+            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Eliminar);
@@ -120,7 +163,6 @@ namespace Veterinaria.Interfaz
             this.Name = "Eliminar_Mascota";
             this.RightToLeftLayout = true;
             this.Text = "Eliminar_Mascota";
-            this.Load += new System.EventHandler(this.Eliminar_Mascota_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,5 +175,8 @@ namespace Veterinaria.Interfaz
         private System.Windows.Forms.Button Eliminar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.ListBox lstMascotas;
     }
 }

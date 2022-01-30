@@ -52,6 +52,12 @@
     <Compile Include="Acciones.Designer.cs">
       <DependentUpon>Acciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgregarHistorialClinica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarHistorialClinica.Designer.cs">
+      <DependentUpon>AgregarHistorialClinica.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarMascotas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,12 +81,6 @@
     </Compile>
     <Compile Include="Eliminar_Sociocs.Designer.cs">
       <DependentUpon>Eliminar_Sociocs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HistorialClinica.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HistorialClinica.Designer.cs">
-      <DependentUpon>HistorialClinica.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -117,6 +117,9 @@
     <EmbeddedResource Include="Acciones.resx">
       <DependentUpon>Acciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AgregarHistorialClinica.resx">
+      <DependentUpon>AgregarHistorialClinica.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsultarMascotas.resx">
       <DependentUpon>ConsultarMascotas.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,9 +131,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Eliminar_Sociocs.resx">
       <DependentUpon>Eliminar_Sociocs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HistorialClinica.resx">
-      <DependentUpon>HistorialClinica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
@@ -157,6 +157,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\Veterinaria.Dominio.Historial.datasource" />
+    <None Include="Properties\DataSources\Veterinaria.Dominio.Seleccionarmascota.datasource" />
+    <None Include="Properties\DataSources\Veterinaria.Dominio.Socio.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

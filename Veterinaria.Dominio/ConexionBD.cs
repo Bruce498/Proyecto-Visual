@@ -8,7 +8,7 @@ namespace Veterinaria.Dominio
     public class ConexionBD
     {
         private string cadena = "Data Source = DESKTOP-IKAKVR4; Initial Catalog=VeterinariaPetVet; Integrated Security=True";
-        //private string cadena = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //private string cadena = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=VeterinariaPetVet;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
 
         //***CONSULTAR DATOS***
@@ -103,64 +103,13 @@ namespace Veterinaria.Dominio
             }
         }
 
-        //MODIFICAR SOCIO
-        public bool ModificarSocio(ModificarSocio modificar)
-        {
-            var conn = new SqlConnection(cadena);
-            var comm = new SqlCommand();
-
-            string sql = "update Cliente set ";
-            string where = " WHERE CedulaIdentidad = @cedula";
-
-            comm.Parameters.AddWithValue("cedula", modificar.cedula);
-
-            if (!string.IsNullOrEmpty(modificar.ciudad))
-            {
-                sql += " Ciudad = @ciudad,";
-                comm.Parameters.AddWithValue("ciudad", modificar.ciudad);
-            }
-
-            if (modificar.cuentabancaria != 0)
-            {
-                sql += " CuentaBancaria = @cuentabancaria,";
-                comm.Parameters.AddWithValue("cuentabancaria", modificar.cuentabancaria);
-            }
-
-            if (!string.IsNullOrEmpty(modificar.direccion))
-            {
-                sql += " Direccion = @direccion,";
-                comm.Parameters.AddWithValue("direccion", modificar.direccion);
-            }
-
-            sql = sql.Substring(0, sql.Length - 1) + where;
-
-            comm.CommandText = sql;
-            comm.Connection = conn;
-
-            // Ejecuto la Query (la consulta)
-            // Si el resultado es OK, se intertó correctamente, sino, hubo un ERROR
-            try
-            {
-                conn.Open();
-                int r = comm.ExecuteNonQuery();
-                return r > 0;
-            }
-            catch
-            {
-                return false;
-            }
-            finally
-            {
-                if (conn.State != ConnectionState.Closed)
-                    conn.Close();
-            }
-        }
 
         //ELIMINAR SOCIO
         public bool EliminarSocio(EliminarSocio eliminarSocio)
         {
 
             var conn = new SqlConnection(cadena);
+            conn.Open();
             var transaction = conn.BeginTransaction();
 
             var borrarCliente = new SqlCommand
@@ -182,10 +131,9 @@ namespace Veterinaria.Dominio
 
             try
             {
-                conn.Open();
                 int borrarMascotaResult = borrarMascota.ExecuteNonQuery();
                 int borrarClienteResult = borrarCliente.ExecuteNonQuery();
-                
+
 
                 transaction.Commit();
 
@@ -231,7 +179,7 @@ namespace Veterinaria.Dominio
                     mascota.Raza = r["Raza"].ToString();
                     mascota.Color = r["Color"].ToString();
                     mascota.FechaNacimiento = r["Fecha Nacimiento"].ToString();
-
+                    mascota.IdAnimal = r["IdAnimal"].ToString();
                     mascotas.Add(mascota);
 
                     // Acá se obtienen los datos del Reader, lo que devuelve la Base de Datos de esa consulta
@@ -275,11 +223,11 @@ namespace Veterinaria.Dominio
                     BuscarSocio = new Socio();
                     BuscarSocio.Nombre = r["Nombre"].ToString();
                     BuscarSocio.Apellido = r["Apellido"].ToString();
-                    BuscarSocio.Cedula = (int)r["CedulaIdentidad"];
+                    BuscarSocio.Cedula = r["CedulaIdentidad"].ToString();
                     BuscarSocio.Ciudad = r["Ciudad"].ToString();
-                    BuscarSocio.CuentaBancaria = (long)r["CuentaBancaria"];
+                    BuscarSocio.CuentaBancaria = r["CuentaBancaria"].ToString();
                     BuscarSocio.Direccion = r["Direccion"].ToString();
-                    BuscarSocio.Telefono = (int)r["Telefono"];
+                    BuscarSocio.Telefono = r["Telefono"].ToString();
 
                     // Acá se obtienen los datos del Reader, lo que devuelve la Base de Datos de esa consulta
                 }
@@ -297,7 +245,116 @@ namespace Veterinaria.Dominio
             }
         }
 
-        //HISTORIACLINICA
+        //BUSCAR VETERINARIO
+        public List<Veterinario> ListarVeterinarios()
+        {
+
+            string sql = "SELECT * from [dbo].[Veterinario]";
+
+            var conn = new SqlConnection(cadena);
+            var comm = new SqlCommand(sql, conn);
+            List<Veterinario> listaVeterinarios = new List<Veterinario>();
+            try
+            {
+                conn.Open();
+                SqlDataReader r = comm.ExecuteReader();
+
+                while (r.Read())
+                {
+                    float.TryParse(r["IdVeterinario"].ToString(), out float id);
+                    listaVeterinarios.Add(new Veterinario
+                    {
+                        Nombre = r["Nombre"].ToString(),
+                        Apellido = r["Apellido"].ToString(),
+                        IdVeterinario = id
+                    });
+                    // Acá se obtienen los datos del Reader, lo que devuelve la Base de Datos de esa consulta
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+            return listaVeterinarios;
+        }
+
+
+        // BUSCAR ENFERMEDAD
+
+        public List<Enfermedad> ListaEnfermedades()
+        {
+
+            string sql = "SELECT * from [dbo].[Enfermedad]";
+
+            var conn = new SqlConnection(cadena);
+            var comm = new SqlCommand(sql, conn);
+            List<Enfermedad> listaEnfermedades = new List<Enfermedad>();
+            try
+            {
+                conn.Open();
+                SqlDataReader r = comm.ExecuteReader();
+
+                while (r.Read())
+                {
+                    float.TryParse(r["IdEnfermedad"].ToString(), out float id);
+                    listaEnfermedades.Add(new Enfermedad
+                    {
+                        IdEnfermedad = id,
+                        Nombre = r["Nombre"].ToString(),
+                    });
+                    // Acá se obtienen los datos del Reader, lo que devuelve la Base de Datos de esa consulta
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+            return listaEnfermedades;
+        }
+
+
+        //AGREGARHISTORIACLINICA
+        public bool AgregarHistoriaClinica(AgregarHistoria agregarhistorialClinica2)
+        {
+            string sql = "INSERT INTO [dbo].[HistoriaClinica] ([IdAnimal],[IdVeterinario] ,[IdEnfermedad],[Fecha Enfermedad])VALUES(@Idanimal,@Idveterinario, @Idenfermedad, @fechadeenfermedad)";
+
+
+            var conn = new SqlConnection(cadena);
+            var comm = new SqlCommand(sql, conn);
+
+            comm.Parameters.AddWithValue("@Idanimal", agregarhistorialClinica2.IdAnimal);
+            comm.Parameters.AddWithValue("@Idveterinario", agregarhistorialClinica2.Idveterinario);
+            comm.Parameters.AddWithValue("@Idenfermedad", agregarhistorialClinica2.Idenfermedad);
+            comm.Parameters.AddWithValue("@fechadeenfermedad", agregarhistorialClinica2.FechadeEnfermedad);
+
+
+            try
+            {
+                conn.Open();
+                int r = comm.ExecuteNonQuery();
+                return r > 0;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+        }
+
 
         // INSERTAR MASCOTA
         public bool Agregarmascota(Agregarmascota insertarmascota)
@@ -373,7 +430,7 @@ namespace Veterinaria.Dominio
                 int r = comm.ExecuteNonQuery();
                 return r > 0;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }
@@ -382,6 +439,99 @@ namespace Veterinaria.Dominio
                 if (conn.State != ConnectionState.Closed)
                     conn.Close();
             }
+        }
+
+        public List<Historial> Historial(string cedula)
+        {
+            string sql = "SELECT [IdHistoriaClinica],[IdAnimal],[IdVeterinario],[IdEnfermedad],[Fecha Enfermedad] " +
+                         "FROM [dbo].[HistoriaClinica] " +
+                         "where idanimal in (select idanimal " +
+                                            "from animal " +
+                                            "where IdCliente in (select idcliente " +
+                                                                "from Cliente " +
+                                                                "where CedulaIdentidad = @ci)) ";
+            var conn = new SqlConnection(cadena);
+            var comm = new SqlCommand(sql, conn);
+
+            comm.Parameters.AddWithValue("@ci", cedula);
+
+            List<Historial> historiales = new List<Historial>();
+
+            try
+            {
+                conn.Open();
+                SqlDataReader r = comm.ExecuteReader();
+
+                while (r.Read())
+                {
+
+                    Historial historial = new Historial();
+
+                    historial.IdHistoriaClinica = r["IdHistoriaClinica"].ToString();
+                    historial.IdAnimal = r["IdAnimal"].ToString();
+                    historial.IdVeterinario = r["IdVeterinario"].ToString();
+                    historial.IdEnfermedad = r["IdEnfermedad"].ToString();
+                    historial.Fecha_Enfermedad = r["Fecha Enfermedad"].ToString();
+
+                    historiales.Add(historial);
+
+                    // Acá se obtienen los datos del Reader, lo que devuelve la Base de Datos de esa consulta
+                }
+
+                return historiales;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+
+
+        }
+        //MODIFICAR SOCIO
+        public bool ModificarSocio(ModificarSocio socio)
+        {
+            bool respuestaExitosa = false;
+            string sql = "UPDATE [dbo].[Cliente] SET [CuentaBancaria]=@cuentaBancaria," +
+                                                     "[Telefono]=@telefono," +
+                                                     "[Direccion]=@direccion," +
+                                                     "[Ciudad]=@cuidad WHERE CedulaIdentidad=@cedula";
+
+            SqlConnection conn = new SqlConnection(cadena);
+            conn.Open();
+
+            var comm = new SqlCommand
+            {
+                Connection = conn,
+                CommandText = sql,
+            };
+
+
+            comm.Parameters.AddWithValue("@cuentaBancaria", socio.cuentabancaria);
+            comm.Parameters.AddWithValue("@telefono", socio.telefono);
+            comm.Parameters.AddWithValue("@direccion", socio.direccion);
+            comm.Parameters.AddWithValue("@cuidad", socio.ciudad);
+            comm.Parameters.AddWithValue("@cedula", socio.cedula);
+
+            try
+            {
+                int r = comm.ExecuteNonQuery();
+                respuestaExitosa= r > 0;
+            }
+            catch (Exception ex)
+            {
+                return respuestaExitosa;
+            }
+            finally
+            {
+                if (conn.State != ConnectionState.Closed)
+                    conn.Close();
+            }
+            return respuestaExitosa;
         }
 
     }

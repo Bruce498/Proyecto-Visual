@@ -42,10 +42,10 @@ namespace Veterinaria.Interfaz
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Lato Black", 16F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(234, 252);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(235, 252);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 33);
+            this.label1.Size = new System.Drawing.Size(194, 31);
             this.label1.TabIndex = 2;
             this.label1.Text = "ID Veterinario";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -53,17 +53,17 @@ namespace Veterinaria.Interfaz
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lato Black", 16F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(840, 254);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 33);
+            this.label2.Size = new System.Drawing.Size(165, 31);
             this.label2.TabIndex = 3;
             this.label2.Text = "Contraseña";
             // 
             // txtID
             // 
             this.txtID.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.txtID.Location = new System.Drawing.Point(222, 289);
+            this.txtID.Location = new System.Drawing.Point(221, 289);
             this.txtID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(220, 22);
@@ -84,10 +84,10 @@ namespace Veterinaria.Interfaz
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Lato Black", 40F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(382, 7);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(381, 7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(595, 80);
+            this.label3.Size = new System.Drawing.Size(611, 76);
             this.label3.TabIndex = 6;
             this.label3.Text = "Logueo de Usuario";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -95,9 +95,9 @@ namespace Veterinaria.Interfaz
             // btnSalir
             // 
             this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
-            this.btnSalir.Font = new System.Drawing.Font("Lato Black", 16F, System.Drawing.FontStyle.Bold);
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.btnSalir.ForeColor = System.Drawing.Color.Transparent;
-            this.btnSalir.Location = new System.Drawing.Point(846, 470);
+            this.btnSalir.Location = new System.Drawing.Point(845, 470);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(139, 41);
@@ -109,7 +109,7 @@ namespace Veterinaria.Interfaz
             // btnIniciar
             // 
             this.btnIniciar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnIniciar.BackgroundImage")));
-            this.btnIniciar.Font = new System.Drawing.Font("Lato Black", 16F, System.Drawing.FontStyle.Bold);
+            this.btnIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.btnIniciar.ForeColor = System.Drawing.Color.Transparent;
             this.btnIniciar.Image = ((System.Drawing.Image)(resources.GetObject("btnIniciar.Image")));
             this.btnIniciar.Location = new System.Drawing.Point(240, 470);
@@ -125,10 +125,10 @@ namespace Veterinaria.Interfaz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Desktop;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1257, 573);
+            this.ClientSize = new System.Drawing.Size(1257, 574);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtcontra);
             this.Controls.Add(this.txtID);

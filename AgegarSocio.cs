@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Veterinaria.Dominio
+namespace Proyecto_Final
 {
-    public class ModificarSocio
+    public class AgegarSocio
     {
-
+        public string nombre;
+        public string apellido;
+        public int cuentabancaria;
         public int cedula;
         public string direccion;
         public string ciudad;
         public int telefono;
-        public int cuentabancaria;
     }
 }

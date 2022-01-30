@@ -1688,10 +1688,13 @@
         G23dUVXmnBi247YoAAKNFFFAAB//2Q==
 </value>
   </data>
+  <metadata name="socioBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABPsAAAJsCAYAAACLV6b2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
-        IwAALiMBeKU/dgAA/7JJREFUeF7s/Qe0XcWd7QvXe2/cN+77vjfu+969t28HG2ccu91ud9tut9sBZ2yD
+        IgAALiIBquLdkgAA/7JJREFUeF7s/Qe0XcWd7QvXe2/cN+77vjfu+969t28HG2ccu91ud9tut9sBZ2yD
         icpZQmSEAJEkIRFFxkQBEiIjJIHISeScEUEgcpRIQkLhhB3W3vOb81+r9llnny3pCISS//MwVbVqVdUK
         e+09xvrxr6oAl8vlcrlcLpfL5XK5XC6Xy7VFyGGfy+VyuVwul8vlcrlcLpfLtYXIYZ/L5XK5XC6Xy+Vy
         uVwul8u1hchhn8vlcrlcLpfL5XK5XC6Xy7WFyGGfy+VyuVwul8vlcrlcLpfLtYXIYZ/L5XK5XC6Xy+Vy

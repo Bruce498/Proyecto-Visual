@@ -34,6 +34,7 @@ namespace Veterinaria.Interfaz
             this.ingresarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresarSocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresarMascotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historialClinicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.socioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +43,6 @@ namespace Veterinaria.Interfaz
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.socioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mascotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +68,8 @@ namespace Veterinaria.Interfaz
             // 
             this.ingresarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ingresarSocioToolStripMenuItem,
-            this.ingresarMascotaToolStripMenuItem});
+            this.ingresarMascotaToolStripMenuItem,
+            this.historialClinicoToolStripMenuItem});
             this.ingresarToolStripMenuItem.Name = "ingresarToolStripMenuItem";
             this.ingresarToolStripMenuItem.Size = new System.Drawing.Size(93, 27);
             this.ingresarToolStripMenuItem.Text = "Ingresar";
@@ -77,16 +78,23 @@ namespace Veterinaria.Interfaz
             // ingresarSocioToolStripMenuItem
             // 
             this.ingresarSocioToolStripMenuItem.Name = "ingresarSocioToolStripMenuItem";
-            this.ingresarSocioToolStripMenuItem.Size = new System.Drawing.Size(167, 28);
+            this.ingresarSocioToolStripMenuItem.Size = new System.Drawing.Size(229, 28);
             this.ingresarSocioToolStripMenuItem.Text = "Socio";
             this.ingresarSocioToolStripMenuItem.Click += new System.EventHandler(this.ingresarSocioToolStripMenuItem_Click);
             // 
             // ingresarMascotaToolStripMenuItem
             // 
             this.ingresarMascotaToolStripMenuItem.Name = "ingresarMascotaToolStripMenuItem";
-            this.ingresarMascotaToolStripMenuItem.Size = new System.Drawing.Size(167, 28);
+            this.ingresarMascotaToolStripMenuItem.Size = new System.Drawing.Size(229, 28);
             this.ingresarMascotaToolStripMenuItem.Text = "Mascota";
             this.ingresarMascotaToolStripMenuItem.Click += new System.EventHandler(this.ingresarMascotaToolStripMenuItem_Click);
+            // 
+            // historialClinicoToolStripMenuItem
+            // 
+            this.historialClinicoToolStripMenuItem.Name = "historialClinicoToolStripMenuItem";
+            this.historialClinicoToolStripMenuItem.Size = new System.Drawing.Size(229, 28);
+            this.historialClinicoToolStripMenuItem.Text = "Historial Clinico";
+            this.historialClinicoToolStripMenuItem.Click += new System.EventHandler(this.historialClinicoToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
@@ -131,8 +139,7 @@ namespace Veterinaria.Interfaz
             // 
             this.consultarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.socioToolStripMenuItem1,
-            this.mascotaToolStripMenuItem,
-            this.hisoToolStripMenuItem});
+            this.mascotaToolStripMenuItem});
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
             this.consultarToolStripMenuItem.Size = new System.Drawing.Size(106, 27);
             this.consultarToolStripMenuItem.Text = "Consultar";
@@ -140,23 +147,16 @@ namespace Veterinaria.Interfaz
             // socioToolStripMenuItem1
             // 
             this.socioToolStripMenuItem1.Name = "socioToolStripMenuItem1";
-            this.socioToolStripMenuItem1.Size = new System.Drawing.Size(229, 28);
+            this.socioToolStripMenuItem1.Size = new System.Drawing.Size(224, 28);
             this.socioToolStripMenuItem1.Text = "Socio";
             this.socioToolStripMenuItem1.Click += new System.EventHandler(this.socioToolStripMenuItem1_Click);
             // 
             // mascotaToolStripMenuItem
             // 
             this.mascotaToolStripMenuItem.Name = "mascotaToolStripMenuItem";
-            this.mascotaToolStripMenuItem.Size = new System.Drawing.Size(229, 28);
+            this.mascotaToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.mascotaToolStripMenuItem.Text = "Mascota";
             this.mascotaToolStripMenuItem.Click += new System.EventHandler(this.mascotaToolStripMenuItem_Click);
-            // 
-            // hisoToolStripMenuItem
-            // 
-            this.hisoToolStripMenuItem.Name = "hisoToolStripMenuItem";
-            this.hisoToolStripMenuItem.Size = new System.Drawing.Size(229, 28);
-            this.hisoToolStripMenuItem.Text = "Historial Clinico";
-            this.hisoToolStripMenuItem.Click += new System.EventHandler(this.hisoToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -203,7 +203,7 @@ namespace Veterinaria.Interfaz
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem socioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mascotaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hisoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem historialClinicoToolStripMenuItem;
     }
 }
