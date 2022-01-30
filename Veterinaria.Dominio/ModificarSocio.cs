@@ -8,9 +8,7 @@ namespace Veterinaria.Dominio
 {
     public class ModificarSocio
     {
-        private string nombre;
-        private string apellido;
-        private string segundonombre;
+
         public int cedula;
         public string direccion;
         public string ciudad;

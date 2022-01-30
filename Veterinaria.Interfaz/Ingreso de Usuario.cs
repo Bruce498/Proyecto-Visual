@@ -63,6 +63,13 @@ namespace Veterinaria.Interfaz
                 acciones.Show();
                 this.Dispose();
             }
+            else if (txtID.Text == "user" && txtcontra.Text == "user")
+            {
+                MessageBox.Show("Se ha iniciado la sesion.");
+                Acciones acciones = new Acciones();
+                acciones.Show();
+                this.Dispose();
+            }
 
             else
             {

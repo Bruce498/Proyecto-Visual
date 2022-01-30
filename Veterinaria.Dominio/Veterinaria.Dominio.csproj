@@ -42,15 +42,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgegarSocio.cs" />
+    <Compile Include="AgregarHistoria.cs" />
     <Compile Include="Agregarmascota.cs" />
     <Compile Include="ConexionBD.cs" />
     <Compile Include="Consultar Datos.cs" />
     <Compile Include="Eliminarmascota.cs" />
     <Compile Include="EliminarSocio.cs" />
+    <Compile Include="Enfermedad.cs" />
+    <Compile Include="Historial.cs" />
     <Compile Include="ModificarSocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seleccionarmascota.cs" />
     <Compile Include="Socio.cs" />
+    <Compile Include="Veterinario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
